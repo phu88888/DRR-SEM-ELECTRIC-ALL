@@ -1,0 +1,79 @@
+<template>
+  <div>
+    <b-row>
+      <b-col
+        lg="6"
+        md="6"
+        class="d-flex align-items-center justify-content-end mt-1"
+      >
+        <!-- Button to download the content as PDF -->
+        <b-button
+          variant="primary"
+          @click="downloadPDF"
+        >
+          Download PDF
+        </b-button>
+      </b-col>
+    </b-row>
+    <!-- The content you want to export as PDF -->
+    <div
+      id="content-to-download"
+      class="pdf-content"
+    >
+      <report-p1 />
+      <report-p2 />
+      <report-p3 />
+      <report-p4 />
+    </div>
+  </div>
+</template>
+
+<script>
+import { BRow, BCol, BButton } from 'bootstrap-vue'
+// import jsPDF from 'jspdf'
+// import html2canvas from 'html2canvas'
+import ReportP1 from './ReportP1.vue'
+import ReportP2 from './ReportP2.vue'
+import ReportP3 from './ReportP3.vue'
+import ReportP4 from './ReportP4.vue'
+
+export default {
+  components: {
+    BRow,
+    BCol,
+    BButton,
+    ReportP1,
+    ReportP2,
+    ReportP3,
+    ReportP4,
+  },
+  methods: {
+    // downloadPDF() {
+    //   const element = document.getElementById('content-to-download')
+    //   html2canvas(element, { scale: 1 }).then(canvas => {
+    //     const imgData = canvas.toDataURL('image/jpeg', 1.0)
+    //     try {
+    //       // eslint-disable-next-line new-cap
+    //       const pdf = new jsPDF('p', 'mm', 'a4')
+    //       const imgWidth = 190 // mm
+    //       // eslint-disable-next-line no-mixed-operators
+    //       const imgHeight = canvas.height * imgWidth / canvas.width // Keep aspect ratio
+    //       pdf.addImage(imgData, 'JPEG', 10, 0, imgWidth, imgHeight)
+    //       pdf.save('download.pdf')
+    //     } catch (error) {
+    //       console.error('Failed to create PDF', error)
+    //     }
+    //   }).catch(error => {
+    //     console.error('Failed to render canvas', error)
+    //   })
+    // },
+
+  },
+}
+</script>
+
+<style>
+.pdf-content {
+  /* Styles for your PDF content */
+}
+</style>

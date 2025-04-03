@@ -1,0 +1,244 @@
+<template>
+  <div>
+    <b-row>
+      <b-col
+        lg="6"
+        md="6"
+        class="d-flex align-items-center justify-content-start mt-1"
+      >
+        <b-link
+          style="font-size: 26px; color: #fff;"
+          href="/location"
+        >
+          <!-- target="_blank" -->
+          <feather-icon
+            style="margin-bottom: 10px;"
+            size="34"
+            icon="ArrowLeftIcon"
+          />
+        </b-link>
+      </b-col>
+      <b-col
+        lg="6"
+        md="6"
+        class="d-flex align-items-center justify-content-end mt-1"
+      >
+        <!-- <b-button
+          variant="primary"
+          style="color: ffffff;"
+          @click="printPage"
+        >
+          Export
+        </b-button> -->
+        <b-link @click="printPage">
+          <feather-icon
+            style="color: #fff; margin-right: 15px; margin-bottom: 10px;"
+            size="34"
+            icon="DownloadIcon"
+          />
+        </b-link>
+      </b-col>
+    </b-row>
+    <div>
+      <section
+        slot="pdf-content"
+        class="pdf-content"
+      >
+        <!-- <b-row>
+          <b-col
+            lg="12"
+            md="12"
+          > -->
+        <div>
+          <!-- <b-card style="background: #fff; width: 100%; height: 100%; border-radius: 10px;"> -->
+          <b-row>
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <ReportP1 />
+            </b-col>
+          </b-row>
+          <!-- </b-card> -->
+        </div>
+        <!-- </b-col>
+        </b-row> -->
+      </section>
+
+      <section
+        slot="pdf-content"
+        class="pdf-content"
+      >
+        <!-- <b-card style="background: #fff; width: 100%; height: 100%; border-radius: 10px;"> -->
+        <b-row>
+          <b-col
+            class="d-flex align-items-center justify-content-center mb-1"
+            lg="12"
+          >
+            <ReportP2 />
+          </b-col>
+        </b-row>
+        <hr
+          class="page-break"
+          style="width: 100%; margin: 10px auto; border: none;"
+        >
+        <!-- </b-card> -->
+        <!-- </b-col>
+        </b-row> -->
+      </section>
+
+      <section
+        slot="pdf-content"
+        class="pdf-content"
+      >
+        <div>
+          <!-- <b-card style="background: #fff; width: 100%; height: 100%; border-radius: 10px;"> -->
+          <b-row>
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <ReportP3 />
+            </b-col>
+          </b-row>
+          <!-- </b-card> -->
+        </div>
+        <!-- </b-col>
+        </b-row> -->
+      </section>
+
+      <section
+        slot="pdf-content"
+        class="pdf-content"
+      >
+        <div>
+          <!-- <b-card style="background: #fff; width: 100%; height: 100%; border-radius: 10px;"> -->
+          <b-row>
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <ReportP4 />
+            </b-col>
+          </b-row>
+          <!-- </b-card> -->
+        </div>
+        <!-- </b-col>
+        </b-row> -->
+      </section>
+    </div>
+  </div>
+</template>
+
+<script>
+import Ripple from 'vue-ripple-directive'
+import {
+  BRow, BCol, BLink,
+  // BButton,
+} from 'bootstrap-vue'
+// import axios from '@axios'
+// import html2PDF from 'jspdf-html2canvas'
+import ReportP1 from './ReportP1.vue'
+import ReportP2 from './ReportP2.vue'
+import ReportP3 from './ReportP3.vue'
+import ReportP4 from './ReportP4.vue'
+
+export default {
+  components: {
+    BRow,
+    BCol,
+    BLink,
+    // BCard,
+    // BButton,
+    ReportP1,
+    ReportP2,
+    ReportP3,
+    ReportP4,
+  },
+  directives: {
+    Ripple,
+  },
+  data() {
+    return {
+      userData: JSON.parse(localStorage.getItem('userData')),
+    }
+  },
+  computed: {
+    sortOptions() {
+      // Create an options list from our fields
+      return this.fields
+        .filter(f => f.sortable)
+        .map(f => ({ text: f.label, value: f.key }))
+    },
+  },
+  mounted() {
+    this.interval = setInterval(() => {
+    }, 600000)
+  },
+  methods: {
+    printPage() {
+      window.print()
+    },
+
+    // generatePDF() {
+    //   const page = document.getElementById('Report')
+    //   const date = new Date().toJSON().slice(0, 10).replace(/-/g, '-')
+    //   html2PDF(page, {
+    //     jsPDF: {
+    //       format: 'a4',
+    //     },
+    //     backgroundColor: '#ffffff',
+    //     margin: {
+    //       top: 5,
+    //       right: 5,
+    //       bottom: 5,
+    //       left: 5,
+    //     },
+    //     imageType: 'image/jpeg',
+    //     output: `Report ${date}.pdf`,
+    //   })
+    // },
+
+    // generatePDF() {
+    //   this.$refs.html2Pdf.generatePdf()
+    // },
+  },
+}
+</script>
+
+<style>
+.custom-table .table, .custom-table .table th, .custom-table .table td {
+  background-color: white; /* Ensuring white background */
+  border: 1px solid black; /* Black borders */
+}
+
+.custom-table .table th,
+.custom-table .table td {
+  border-color: black; /* Black cell borders */
+  color: black !important; /* Forcefully ensuring text in cells is black */
+}
+
+/* .fade {
+  opacity: 1;
+} */
+
+@media print {
+  .page-break {
+    page-break-after: always; /* Ensures a page break after the section */
+  }
+  .a4-size {
+    width: 595px; /* Approx width for A4 size */
+    height: 842px; /* Approx height for A4 size */
+    padding: 20px;
+    margin: auto;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.pdf-content span, .pdf-content div {
+  font-family: 'Sarabun', sans-serif; /* Example to set font for general text */
+  font-size: 14px; /* Larger text size for content */
+}
+
+</style>

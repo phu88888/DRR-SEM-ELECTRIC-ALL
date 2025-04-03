@@ -99,3 +99,13 @@ export default {
   },
 }
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+html, body {
+  font-family: 'Sarabun', sans-serif;
+}
+#app {
+  font-family: 'Sarabun', sans-serif;
+}
+</style>

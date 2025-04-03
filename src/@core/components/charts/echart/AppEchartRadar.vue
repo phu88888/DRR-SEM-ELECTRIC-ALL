@@ -30,9 +30,6 @@ export default {
   data() {
     return {
       option: {
-        title: {
-          text: 'Basic radar chart',
-        },
         tooltip: {},
         legend: {
           data: ['Point One', 'Point Two'],

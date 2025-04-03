@@ -1,0 +1,333 @@
+<template>
+  <div>
+    <!-- TABLE -->
+    <b-card>
+      <b-row>
+        <b-col
+          lg="12"
+          md="12"
+        >
+          <h3>สถานที่ติดตั้ง</h3>
+        </b-col>
+        <b-col
+          lg="4"
+          class="d-flex align-items-center justify-content-start mb-1"
+        >
+          <b-input-group>
+            <b-form-input
+              id="filterInput"
+              v-model="filter"
+              type="search"
+              placeholder="ป้อนคำค้นหา"
+              label-cols-sm="12"
+              label-cols-md="2"
+              label-cols-lg="2"
+            />
+            <b-input-group-append>
+              <b-button
+                :disabled="!filter"
+                @click="filter = ''"
+              >
+                ล้าง
+              </b-button>
+            </b-input-group-append>
+          </b-input-group>
+        </b-col>
+        <b-col cols="12">
+          <b-table
+            responsive
+            :per-page="perPage"
+            :current-page="currentPage"
+            :items="items"
+            :fields="fields"
+            :sort-by.sync="sortBy"
+            :sort-desc.sync="sortDesc"
+            :sort-direction="sortDirection"
+            :filter="filter"
+            :filter-included-fields="filterOn"
+            @filtered="onFiltered"
+          >
+            <template #cell(road_code)="data">
+              <div>
+                <b-link
+                  v-if="data.item.active_location_id !== 0 "
+                  :to="{ path: `/location-day?location_id=${data.item.location_id}`}"
+                  style="text-decoration: underline; color: #11DF00;"
+                >
+                  <span>{{ data.item.road_code }}</span>
+                </b-link>
+                <b-link
+                  v-else
+                  :to="{ path: `/location-day?location_id=${data.item.location_id}`}"
+                  style="text-decoration: underline; color: #CCAF61;"
+                >
+                  <span>{{ data.item.road_code }}</span>
+                </b-link>
+              </div>
+            </template>
+            <template #cell(isOnline)="data">
+              <b-badge :variant="status[1][data.value]">
+                {{ status[0][data.value] }}
+              </b-badge>
+            </template>
+            <template #cell(actions)="data">
+              <b-dropdown
+                variant="link"
+                no-caret
+                :right="$store.state.appConfig.isRTL"
+              >
+
+                <template #button-content>
+                  <feather-icon
+                    icon="UploadIcon"
+                    size="16"
+                  />
+                </template>
+
+                <b-dropdown-item
+                  v-b-modal="'modalUploadSet'"
+                  @click="$refs.modalUploadSet.setLocationID(data.item.location_id)"
+                >
+                  <feather-icon icon="SettingsIcon" />
+                  <span class="align-middle ml-50">รูปการติดตั้ง</span>
+                </b-dropdown-item>
+
+                <b-dropdown-item
+                  v-b-modal="'modalUploadCam'"
+                  @click="$refs.modalUploadCam.setLocationID(data.item.location_id)"
+                >
+                  <feather-icon icon="CameraIcon" />
+                  <span class="align-middle ml-50">รูปภาพจากกล้อง</span>
+                </b-dropdown-item>
+              </b-dropdown>
+            </template>
+            <template #cell(report)="data">
+              <div>
+                <b-link
+                  v-b-modal="'modalEdit'"
+                  class="mr-1"
+                  @click="$refs.childref.getID(data.item.uid)"
+                >
+                  <feather-icon
+                    icon="PrinterIcon"
+                    size="20"
+                  />
+                </b-link>
+              </div>
+            </template>
+            <template #cell(edit)="data">
+              <div class="d-flex justify-content-start">
+                <b-link
+                  v-b-modal="'modalEdit'"
+                  class="mr-1"
+                  @click="$refs.modalEdit.dropdownLocation(data.item.ipaddress), $refs.modalUpdate.getLocation(data.item.camera_id)"
+                >
+                  <feather-icon
+                    icon="EditIcon"
+                    size="20"
+                  />
+                </b-link>
+              </div>
+            </template>
+          </b-table>
+        </b-col>
+        <b-col
+          cols="12"
+        >
+          <b-card-body class="d-flex justify-content-between flex-wrap pt-1">
+            <!-- page length -->
+            <b-form-group
+              label="Per Page"
+              label-cols="6"
+              label-align="left"
+              label-size="sm"
+              label-for="sortBySelect"
+              class="text-nowrap mb-md-0 mr-1"
+            >
+              <b-form-select
+                id="perPageSelect"
+                v-model="perPage"
+                size="sm"
+                inline
+                :options="pageOptions"
+              />
+            </b-form-group>
+
+            <!-- pagination -->
+            <div>
+              <b-pagination
+                v-model="currentPage"
+                :total-rows="totalRows"
+                :per-page="perPage"
+                first-number
+                last-number
+                prev-class="prev-item"
+                next-class="next-item"
+                class="mb-0"
+              >
+                <template #prev-text>
+                  <feather-icon
+                    icon="ChevronLeftIcon"
+                    size="18"
+                  />
+                </template>
+                <template #next-text>
+                  <feather-icon
+                    icon="ChevronRightIcon"
+                    size="18"
+                  />
+                </template>
+              </b-pagination>
+            </div>
+          </b-card-body>
+        </b-col>
+      </b-row>
+    </b-card>
+  </div>
+</template>
+
+<script>
+import {
+  BRow, BCol, BTable, BPagination, BInputGroup, BInputGroupAppend, BFormInput, BButton,
+  BFormGroup, BFormSelect, BCardBody, BCard, BDropdownItem, BDropdown,
+  BLink,
+  BBadge,
+} from 'bootstrap-vue'
+import axios from '@axios'
+
+export default {
+  components: {
+    BRow,
+    BCol,
+    BCard,
+    BTable,
+    BPagination,
+    BInputGroup,
+    BInputGroupAppend,
+    BFormInput,
+    BButton,
+    BFormGroup,
+    BFormSelect,
+    BCardBody,
+    BBadge,
+    BLink,
+    BDropdown,
+    BDropdownItem,
+  },
+  data() {
+    return {
+      userData: JSON.parse(localStorage.getItem('userData')),
+      fields: [
+        {
+          key: 'location_id',
+          label: 'ลำดับ',
+          thStyle: { width: '10%' },
+          sortable: true,
+        },
+        {
+          key: 'road_code',
+          label: 'สายทาง',
+          thStyle: { width: '20%' },
+          sortable: false,
+        },
+        {
+          key: 'road_name',
+          label: 'จุดติดตั้ง',
+          thStyle: { width: '50%' },
+          sortable: false,
+        },
+        {
+          key: 'province',
+          label: 'จังหวัด',
+          thStyle: { width: '10%' },
+          sortable: false,
+        },
+        {
+          key: 'day_count',
+          label: 'ระยะเวลานับรถ',
+          thStyle: { width: '10%' },
+          class: 'text-center',
+        },
+        {
+          key: 'actions',
+          label: 'อัพโหลดรูป',
+          class: 'text-center',
+          thStyle: { width: '10%' },
+        },
+        {
+          key: 'report',
+          label: 'รายงาน',
+          class: 'text-center',
+          thStyle: { width: '10%' },
+        },
+        {
+          key: 'edit',
+          label: 'แก้ไข',
+        },
+      ],
+      items: [],
+      perPage: 100,
+      pageOptions: [100],
+      totalRows: 1,
+      currentPage: 1,
+      sortBy: '',
+      sortDesc: false,
+      sortDirection: 'asc',
+      filter: null,
+      filterOn: [],
+      status: [{
+        Online: 'ออนไลน์', Offline: 'ออฟไลน์',
+      },
+      {
+        Online: 'success', Offline: 'danger',
+      }],
+      formData: new FormData(),
+    }
+  },
+  computed: {
+    sortOptions() {
+      // Create an options list from our fields
+      return this.fields
+        .filter(f => f.sortable)
+        .map(f => ({ text: f.label, value: f.key }))
+    },
+    computedFields() {
+      // If the user isn't an admin, filter out fields that require auth.
+      if (this.userData.role === 'User') return this.fields.filter(field => !field.requiresAdmin)
+      // If the user IS an admin, return all fields.
+      return this.fieldsSpeaker
+    },
+  },
+  beforeDestroy() {
+    clearInterval(this.interval)
+  },
+  mounted() {
+    this.getTableLocation()
+    this.interval = setInterval(() => {
+      this.getTableLocation()
+    }, 300000)
+  },
+  methods: {
+    getTableLocation() {
+      axios
+        .post('/get-Location-All2')
+        .then(response => {
+          this.items = response.data
+          this.totalRows = response.data.length
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    onFiltered(filteredItems) {
+      // Trigger pagination to update the number of buttons/pages due to filtering
+      this.totalRows = filteredItems.length
+      this.currentPage = 1
+    },
+  },
+}
+</script>
+
+<style lang="scss">
+@import '@core/scss/vue/libs/vue-select.scss';
+</style>

@@ -1,0 +1,769 @@
+<template>
+  <div>
+    <b-button @click="goBack">
+      ย้อนกลับ
+    </b-button>
+    <b-row>
+      <b-col
+        lg="12"
+        md="12"
+      >
+        <b-card
+          class="a4-size"
+          style="background: #fff; width: 100%; border-radius: 10px"
+        >
+          <b-row>
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <b-img
+                style="opacity: 0.6;"
+                src="@/assets/images/icons/firsttech.jpg"
+                width="1000px"
+                height="536px"
+                fluid
+              />
+            </b-col>
+
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <span style="color: #000; font-size:20px; font-weight: bold">แผนที่สายทางและจุดติดตั้งเครื่องนับปริมาณจราจรบนสายทาง</span>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </b-col>
+
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <span style="color: #000; font-size:16px;">สำรวจด้วยวิธี เรด้า ซึ่งจุดติดตั้งนี้ติดตั้งใน กม.ที่ {{ sta }} ดังแสดงในรูปที่ 1</span>
+              <br>
+            </b-col>
+
+            <!-- <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <b-img
+                src="https://image.enixma.net/drr_count_67/map_image/1.jpg"
+                width="600px"
+                height="836px"
+                fluid
+              />
+            </b-col> -->
+
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <b-img
+                :src="map_picture"
+                width="600px"
+                height="536px"
+                fluid
+              />
+            </b-col>
+
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <span style="color: #000; font-size: 15px; font-weight: normal;">รูปที่ 1 แผนที่แสดงจุดติดตั้งเครื่องนับปริมาณจราจร</span>
+              <br>
+              <br>
+            </b-col>
+            <hr
+              class="page-break"
+              style="width: 100%; margin: 10px auto; border: none;"
+            >
+            <br>
+            <br>
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <b-img
+                style="opacity: 0.6;"
+                src="@/assets/images/icons/firsttech.jpg"
+                width="1000px"
+                height="536px"
+                fluid
+              />
+            </b-col>
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <span style="color: #000; font-size:20px; font-weight: bold">รายงานการสำรวจและวิเคราะห์ข้อมูลปริมาณจราจร (Passenger Car Unit : PCU)</span>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </b-col>
+
+            <b-col
+              class="d-flex align-items-center justify-content-start mb-1"
+              lg="12"
+            >
+              <span style="color: #000; font-size:17px;">วันที่สำรวจ &nbsp;&nbsp;{{ MinDate }} ถึง {{ MaxDate }}</span>
+            </b-col>
+            <b-col
+              class="d-flex align-items-center justify-content-start mb-1"
+              lg="12"
+            >
+              <span style="color: #000; font-size:17px;">ชื่อสายทาง &nbsp;&nbsp;{{ road_code }} {{ road_name }}</span>
+            </b-col>
+            <b-col
+              class="d-flex align-items-center justify-content-start mb-1"
+              lg="12"
+            >
+              <span style="color: #000; font-size:17px;">อำเภอ &nbsp;{{ amphoe }} จังหวัด &nbsp;{{ province }}</span>
+            </b-col>
+            <b-col
+              class="d-flex align-items-center justify-content-start mb-1"
+              lg="12"
+            >
+              <span style="color: #000; font-size:17px;">ระยะทางตลอดสายทาง &nbsp;{{ distance_km }}</span>
+            </b-col>
+            <b-col
+              class="d-flex align-items-center justify-content-start mb-1"
+              lg="12"
+            >
+              <span style="color: #000; font-size:17px;">จุดติดตั้งอุปกรณ์สำรวจ {{ sta }} ตำแหน่งพิกัด {{ latitude }}, {{ longitude }} (จุดสำรวจที่ 1)</span>
+            </b-col>
+            <b-col
+              class="d-flex align-items-center justify-content-start mb-1"
+              lg="12"
+            >
+              <span style="color: #000; font-size:17px;">{{ dept_group }} {{ dept_name }}</span>
+            </b-col>
+
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              cols="6"
+            >
+              <b-img
+                :src="cam_picture"
+                width="600px"
+                height="536px"
+                fluid
+              />
+            </b-col>
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              cols="6"
+            >
+              <b-img
+                :src="setup_picture"
+                width="600px"
+                height="536px"
+                fluid
+              />
+            </b-col>
+
+            <b-col cols="12">
+              <b-table
+                class="custom-table"
+                responsive
+                :items="items"
+                :fields="fields"
+              >
+                <template
+                  slot="thead-top"
+                >
+                  <tr>
+                    <th
+                      rowspan="2"
+                      colspan="1"
+                      style="text-align:center; vertical-align: middle; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      วันที่
+                    </th>
+                    <th
+                      colspan="7"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      สัดส่วนยานพาหนะแต่ละประเภท (PCU)
+                    </th>
+                    <th
+                      rowspan="2"
+                      colspan="1"
+                      style="text-align:center; vertical-align: middle; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รวมสัดส่วนยานพาหนะ
+                    </th>
+                    <th
+                      rowspan="2"
+                      colspan="1"
+                      style="text-align:center; vertical-align: middle; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      ความเร็วเฉลี่ย (KM/H.)
+                    </th>
+                  </tr>
+                  <tr>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      มอเตอร์ไซค์
+                    </th>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รถยนต์
+                    </th>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รถกระบะ
+                    </th>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รถแท็กซี่
+                    </th>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รถบัส
+                    </th>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รถบรรทุก
+                    </th>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รถพ่วง
+                    </th>
+                  </tr>
+                </template>
+              </b-table>
+              <br>
+            </b-col>
+            <b-col cols="12">
+              <b-table
+                class="custom-table"
+                responsive
+                :items="itemsPCU"
+                :fields="fieldsPCU"
+              >
+                <template
+                  slot="thead-top"
+                >
+                  <tr>
+                    <th
+                      rowspan="2"
+                      colspan="1"
+                      style="text-align:center; vertical-align: middle; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      วันที่
+                    </th>
+                    <th
+                      colspan="7"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      สัดส่วนยานพาหนะแต่ละประเภท (คัน)
+                    </th>
+                    <th
+                      rowspan="2"
+                      colspan="1"
+                      style="text-align:center; vertical-align: middle; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รวมสัดส่วนยานพาหนะ
+                    </th>
+                    <th
+                      rowspan="2"
+                      colspan="1"
+                      style="text-align:center; vertical-align: middle; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      ความเร็วเฉลี่ย (KM/H.)
+                    </th>
+                  </tr>
+                  <tr>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      มอเตอร์ไซค์
+                    </th>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รถยนต์
+                    </th>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รถกระบะ
+                    </th>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รถแท็กซี่
+                    </th>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รถบัส
+                    </th>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รถบรรทุก
+                    </th>
+                    <th
+                      rowspan="1"
+                      style="text-align:center; font-size: 14px; background:rgb(0,0,0, 0.0); color: #000;"
+                    >
+                      รถพ่วง
+                    </th>
+                  </tr>
+                </template>
+              </b-table>
+              <br>
+            </b-col>
+            <hr
+              class="page-break"
+              style="width: 100%; margin: 10px auto; border: none;"
+            >
+            <br>
+            <br>
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <b-img
+                style="opacity: 0.6;"
+                src="@/assets/images/icons/firsttech.jpg"
+                width="1000px"
+                height="536px"
+                fluid
+              />
+            </b-col>
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <span style="color: #000; font-size:20px; font-weight: bold">รายงานข้อมูลสถิติทางวิศวกรรมจราจรและระบบขนส่ง</span>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </b-col>
+            <b-col cols="6">
+              <BarChartReport />
+            </b-col>
+            <b-col cols="6">
+              <BarChartReportPCU />
+              <br>
+              <br>
+            </b-col>
+            <b-col cols="12">
+              <PieChartReport />
+              <br>
+              <br>
+            </b-col>
+            <hr
+              class="page-break"
+              style="width: 100%; margin: 10px auto; border: none;"
+            >
+            <br>
+            <br>
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <b-img
+                style="opacity: 0.6;"
+                src="@/assets/images/icons/firsttech.jpg"
+                width="1000px"
+                height="536px"
+                fluid
+              />
+            </b-col>
+            <b-col
+              class="d-flex align-items-center justify-content-center mb-1"
+              lg="12"
+            >
+              <span style="font-size:20px; color: #000; font-weight: bold;">ปริมาณยานพาหนะแต่ละประเภทตามช่วงเวลา (PCU) </span>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </b-col>
+            <b-col cols="12">
+              <LineChartReport />
+              <br>
+              <br>
+            </b-col>
+
+            <b-col lg="12">
+              <div>
+                <ReportStatisticCount />
+              </div>
+            </b-col>
+          </b-row>
+        </b-card>
+      </b-col>
+    </b-row>
+  </div>
+</template>
+
+<script>
+import Ripple from 'vue-ripple-directive'
+import {
+  BRow, BCol, BCard, BTable, BImg, BButton,
+} from 'bootstrap-vue'
+import axios from '@axios'
+import BarChartReport from './BarChartReport.vue'
+import BarChartReportPCU from './BarChartReportPCU.vue'
+import PieChartReport from './PieChartReport.vue'
+import LineChartReport from './LineChartReport.vue'
+import ReportStatisticCount from './ReportStatisticCount.vue'
+
+export default {
+  components: {
+    BRow,
+    BCol,
+    BCard,
+    BTable,
+    BImg,
+    BButton,
+    BarChartReport,
+    BarChartReportPCU,
+    PieChartReport,
+    LineChartReport,
+    ReportStatisticCount,
+  },
+  directives: {
+    Ripple,
+  },
+  data() {
+    return {
+      date_time: '',
+      fields: [
+        {
+          key: 'date_time',
+          label: 'วันที่',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'bike',
+          label: 'มอเตอร์ไซค์',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'car',
+          label: 'รถยนต์',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'pickup',
+          label: 'รถกระบะ',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'taxi',
+          label: 'รถแท็กซี่',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'bus',
+          label: 'รถบัส',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'truck',
+          label: 'รถบรรทุก',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'trailer',
+          label: 'รถพ่วง',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'speed_max',
+          label: 'รวมสัดส่วนยานพาหนะ',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'speed_avg',
+          label: 'ความเร็วเฉลี่ย (km/h.)',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        // {
+        //   key: 'id',
+        //   label: 'สถานะ',
+        //   class: 'text-center hidden',
+        // },
+      ],
+      fieldsPCU: [
+        {
+          key: 'date_time',
+          label: 'วันที่',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'bike_pcu',
+          label: 'มอเตอร์ไซค์',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'car_pcu',
+          label: 'รถยนต์',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'pickup_pcu',
+          label: 'รถกระบะ',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'taxi_pcu',
+          label: 'รถแท็กซี่',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'bus_pcu',
+          label: 'รถบัส',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'truck_pcu',
+          label: 'รถบรรทุก',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'trailer_pcu',
+          label: 'รถพ่วง',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'speed_max',
+          label: 'รวมสัดส่วนยานพาหนะ',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        {
+          key: 'speed_avg',
+          label: 'ความเร็วเฉลี่ย (km/h.)',
+          class: 'text-center',
+          thStyle: { background: '#fff', display: 'none' },
+        },
+        // {
+        //   key: 'id',
+        //   label: 'สถานะ',
+        //   class: 'text-center hidden',
+        // },
+      ],
+      userData: JSON.parse(localStorage.getItem('userData')),
+      items: [],
+      items1: [],
+      itemsPCU: [],
+      location_id: '',
+      dept_name: '',
+      dept_group: '',
+      road_code: '',
+      road_name: '',
+      amphoe: '',
+      province: '',
+      sta: '',
+      distance_km: '',
+      installation_point: '',
+      latitude: '',
+      longitude: '',
+      pcu: '',
+      note: '',
+      map_picture: '',
+      cam_picture: '',
+      setup_picture: '',
+      day_count: '',
+      pcu_avg: '',
+      vehicle_max: '',
+      vehicle_class: '',
+      AADT: '',
+      percent_truck: '',
+      speed_max: '',
+      speed_avg: '',
+      speed85th: '',
+      lane_density: '',
+      CLV: '',
+      VKT: '',
+      PHF: '',
+      LOS: '',
+      VC_Ratio: '',
+      pcu_hour: '',
+      MinDate: '',
+      MaxDate: '',
+    }
+  },
+  computed: {
+    sortOptions() {
+      // Create an options list from our fields
+      return this.fields
+        .filter(f => f.sortable)
+        .map(f => ({ text: f.label, value: f.key }))
+    },
+  },
+  mounted() {
+    this.tableCount()
+    this.tableCountPCU()
+    this.reportData()
+  },
+  methods: {
+    goBack() {
+      this.$router.push({ path: '/' })
+    },
+    printPage() {
+      window.print()
+    },
+    reportData() {
+      axios
+        .post('/get-Data-Report-All', { location_id: this.$route.query.location_id })
+        .then(response => {
+          this.location_id = response.data[0].location_id
+          this.dept_name = response.data[0].dept_name
+          this.dept_group = response.data[0].dept_group
+          this.road_code = response.data[0].road_code
+          this.road_name = response.data[0].road_name
+          this.amphoe = response.data[0].amphoe
+          this.province = response.data[0].province
+          this.sta = response.data[0].sta
+          this.distance_km = response.data[0].distance_km
+          this.installation_point = response.data[0].installation_point
+          this.latitude = response.data[0].latitude
+          this.longitude = response.data[0].longitude
+          this.pcu = response.data[0].pcu
+          this.note = response.data[0].note
+          this.map_picture = response.data[0].map_picture
+          this.cam_picture = response.data[0].cam_picture
+          this.setup_picture = response.data[0].setup_picture
+          this.day_count = response.data[0].day_count
+          this.pcu_avg = response.data[0].pcu_avg
+          this.vehicle_max = response.data[0].vehicle_max
+          this.vehicle_class = response.data[0].vehicle_class
+          this.AADT = response.data[0].AADT
+          this.percent_truck = response.data[0].percent_truck
+          this.speed_max = response.data[0].speed_max
+          this.speed_avg = response.data[0].speed_avg
+          this.speed85th = response.data[0].speed85th
+          this.lane_density = response.data[0].lane_density
+          this.CLV = response.data[0].CLV
+          this.VKT = response.data[0].VKT
+          this.PHF = response.data[0].PHF
+          this.LOS = response.data[0].LOS
+          this.VC_Ratio = response.data[0].VC_Ratio
+          this.pcu_hour = response.data[0].traffic_flow_rate
+          this.MinDate = response.data[0].MinDate
+          this.MaxDate = response.data[0].MaxDate
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    tableCount() {
+      axios
+        .post('/get-Count-Daily-All', { location_id: this.$route.query.location_id })
+        .then(response => {
+          this.items = response.data
+          this.totalRows = response.data.length
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+
+    tableCountPCU() {
+      axios
+        .post('/get-Count-Daily-PCU-All', { location_id: this.$route.query.location_id })
+        .then(response => {
+          this.itemsPCU = response.data
+          this.totalRows = response.data.length
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+  },
+}
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap');
+@media print {
+  .page-break {
+    page-break-after: always; /* Ensures a page break after the section */
+  }
+  .a4-size {
+    width: 595px; /* Approx width for A4 size */
+    height: 842px; /* Approx height for A4 size */
+    padding: 20px;
+    margin: auto;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+}
+.custom-table .table, .custom-table .table th, .custom-table .table td {
+  background-color: white; /* Ensuring white background */
+  border: 1px solid black; /* Black borders */
+  margin: auto;
+  font-size: 0.8rem;
+}
+
+.custom-table .table th,
+.custom-table .table td {
+  border-color: black; /* Black cell borders */
+  color: black !important; /* Forcefully ensuring text in cells is black */
+  padding: 7px;
+}
+
+#pdfContent {
+  font-family: 'Sarabun', sans-serif;
+}
+
+/* .fade {
+  opacity: 1;
+} */
+
+</style>

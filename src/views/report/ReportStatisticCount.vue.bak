@@ -1,0 +1,3686 @@
+<template>
+  <div>
+    <b-row
+      style="margin-left: 25px;"
+    >
+      <!-- แถว 1 กล่องเดียว -->
+      <b-col
+        lg="4"
+        md="4"
+      />
+      <b-col
+        lg="4"
+        md="4"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="380"
+            y="80"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              PCU
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="480"
+            y="170"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ pcu }}
+            </span>
+            <span
+              style="text-align:center; font-weight: 600; font-size: 45px;"
+            >
+              กม./ชม.
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+      <b-col
+        lg="4"
+        md="4"
+      />
+
+      <!-- แถว 2 -->
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="250"
+            y="70"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              ยานพาหนะสูงสุด
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="240"
+            y="180"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span
+              style="color: #544514; font-weight: 700; font-size: 50px;"
+              class="mr-1"
+            >
+              {{ vehicle_class }}จักยานยนต์
+            </span>
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ vehicle_max }}
+            </span>
+            <span
+              style="text-align:center; font-weight: 600; font-size: 45px;"
+            >
+              คัน/วัน
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="370"
+            y="80"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              AADT
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="500"
+            y="180"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ AADT }}
+            </span>
+            <span
+              style="text-align:center; font-weight: 600; font-size: 45px;"
+            >
+              คัน/วัน
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="160"
+            y="80"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              เปอร์เซ็นต์รถบรรทุกหนัก
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="500"
+            y="180"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ percent_truck }} %
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+
+      <!-- แถว 3 -->
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="280"
+            y="80"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              ความเร็วสูงสุด
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="480"
+            y="180"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ speed_max }}
+            </span>
+            <span
+              style="text-align:center; font-weight: 600; font-size: 45px;"
+            >
+              กม./ชม.
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="250"
+            y="80"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              ความเร็วเฉลี่ย
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="480"
+            y="180"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ speed_avg }}
+            </span>
+            <span
+              style="text-align:center; font-weight: 600; font-size: 45px;"
+            >
+              กม./ชม.
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="250"
+            y="80"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              85 เปอร์เซ็นไทล์
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="480"
+            y="180"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ speed85th }}
+            </span>
+            <span
+              style="text-align:center; font-weight: 600; font-size: 45px;"
+            >
+              กม./ชม.
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+
+      <!-- แถว 4 -->
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="250"
+            y="80"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              Lane Density
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="480"
+            y="180"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ lane_density }}
+            </span>
+            <span
+              style="text-align:center; font-weight: 600; font-size: 45px;"
+            >
+              คัน/กม.
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="180"
+            y="90"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              Critical Lane Volume
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="480"
+            y="180"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ CLV }}
+            </span>
+            <span
+              style="text-align:center; font-weight: 600; font-size: 45px;"
+            >
+              คัน/ชม.
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="130"
+            y="90"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              Vehicle Kilometer Travel
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="480"
+            y="180"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ VKT }}
+            </span>
+            <span
+              style="text-align:center; font-weight: 600; font-size: 45px;"
+            >
+              คัน/ชม.
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+
+      <!-- แถว 5 -->
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="200"
+            y="80"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              Peak Hour Factor
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="500"
+            y="180"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ PHF }}
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="200"
+            y="80"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              Level of Service
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="540"
+            y="175"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 55px;">
+              {{ LOS }}
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="160"
+            y="80"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 60px;">
+              Volume Capacity Ratio
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="500"
+            y="180"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ VC_Ratio }}
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+
+      <!-- แถว 6 -->
+      <b-col
+        lg="4"
+        md="4"
+      />
+      <b-col
+        lg="4"
+        md="4"
+        class="mt-2"
+      >
+        <svg
+          :width="isSmallScreen() ? '100%' : '90%'"
+          :height="isSmallScreen() ? '90%' : '100%'"
+          viewBox="0 0 892 325"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M702.494 6.12371L882.727 96.0613L882.727 318.802L122.009 316.5H119.5H117.5L9.27348 315.5L9.27348 6.12371H702.494ZM705.548 0H0V325H122.009H892L892 92.9625L705.548 0Z"
+            fill="#02A3E7"
+          />
+          <path
+            d="M2.29108 1.47559H704.785L889.709 93.7003V322.196H121.646H2.29108V1.47559ZM6.87328 316.737L120.337 319.098H885.018V95.2497L703.257 4.5743H6.87328V316.737Z"
+            fill="#1B7982"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V73.4847L743.297 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M771.336 6.12378H882.727V61.3111L771.336 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M891.891 0V46.3337L798.174 0H891.891Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.56"
+            d="M826.213 6.12378H882.727V34.1601L826.213 6.12378Z"
+            fill="#02A3E7"
+          />
+          <path
+            opacity="0.3"
+            d="M632.997 24.9376H160.377V48.5472H632.997V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M623.833 31.135H169.541V42.3495H623.833V31.135Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M461.383 24.9376H160.377V36.7424H461.383V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M459.092 26.4868H162.668V35.1928H459.092V26.4868Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M47.3493 24.9376H42.4398V247.753H47.3493V24.9376Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M54.8772 37.554H35.021V48.4734H54.8772V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.56"
+            d="M51.1678 37.554H38.7304V48.4734H51.1678V37.554Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 56C700.635 56 711.778 47.4934 711.778 37C711.778 26.5065 700.635 18 686.889 18C673.143 18 662 26.5065 662 37C662 47.4934 673.143 56 686.889 56Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3"
+            d="M686.889 53.4028C698.756 53.4028 708.376 46.059 708.376 36.9999C708.376 27.9409 698.756 20.597 686.889 20.597C675.022 20.597 665.402 27.9409 665.402 36.9999C665.402 46.059 675.022 53.4028 686.889 53.4028Z"
+            fill="#02A3E7"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M686.889 44.3814C692.229 44.3814 696.558 41.0766 696.558 37C696.558 32.9234 692.229 29.6188 686.889 29.6188C681.549 29.6188 677.22 32.9234 677.22 37C677.22 41.0766 681.549 44.3814 686.889 44.3814Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            d="M124.146 293.328L124.146 258.016H114L114 293.328H124.146Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.9127"
+            d="M150.12 258H139.973V293.312H150.12V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.8255"
+            d="M176.194 258H166.048V293.312H176.194V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.7382"
+            d="M202.16 258H192.014V293.312H202.16V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.6509"
+            d="M228.126 258H217.98V293.312H228.126V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.5636"
+            d="M254.201 258H244.055V293.312H254.201V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.4764"
+            d="M280.167 258H270.02V293.312H280.167V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3891"
+            d="M306.132 258H295.986V293.312H306.132V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.3018"
+            d="M332.207 258H322.061V293.312H332.207V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.2145"
+            d="M358.173 258H348.027V293.312H358.173V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.1273"
+            d="M384.248 258H374.102V293.312H384.248V258Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <path
+            opacity="0.04"
+            d="M410.198 293.333V258.021H400.052V293.333H410.198Z"
+            fill="#1B7982"
+            fill-opacity="0.3"
+          />
+          <foreignObject
+            x="100"
+            y="90"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="font-weight: 700; font-size: 55px;">
+              อัตราการไหลของปริมาณจราจร
+            </span>
+          </foreignObject>
+          <foreignObject
+            x="480"
+            y="180"
+            width="100%"
+            height="100%"
+            color="#000000"
+            style=" text-shadow: 2px 2px #fff;"
+          >
+            <span style="text-align:left; font-weight: 700; font-size: 55px;">
+              {{ pcu_hour }}
+            </span>
+            <span
+              style="text-align:center; font-weight: 600; font-size: 45px;"
+            >
+              PCU/ชม.
+            </span>
+          </foreignObject>
+        </svg>
+      </b-col>
+      <b-col
+        lg="4"
+        md="4"
+      />
+    </b-row>
+  </div>
+</template>
+
+<script>
+import {
+  BRow, BCol,
+  // BPopover,
+} from 'bootstrap-vue'
+import axios from '@axios'
+
+export default {
+  components: {
+    BRow,
+    BCol,
+    // BImg,
+    // BPopover,
+  },
+  data() {
+    return {
+      Total: '',
+      Type_Max: '',
+      Type: '',
+      Speed_Max: '',
+      Speed85: 0,
+      SpeedAVG: 0,
+      dept_name: '',
+      dept_group: '',
+      road_code: '',
+      road_name: '',
+      amphoe: '',
+      province: '',
+      sta: '',
+      distance_km: '',
+      installation_point: '',
+      latitude: '',
+      longitude: '',
+      pcu: '',
+      note: '',
+      map_picture: '',
+      cam_picture: '',
+      setup_picture: '',
+      day_count: '',
+      pcu_avg: '',
+      vehicle_max: '',
+      vehicle_class: '',
+      AADT: '',
+      percent_truck: '',
+      speed_max: '',
+      speed_avg: '',
+      speed85th: '',
+      lane_density: '',
+      CLV: '',
+      VKT: '',
+      PHF: '',
+      LOS: '',
+      VC_Ratio: '',
+      pcu_hour: '',
+      MinDate: '',
+      MaxDate: '',
+    }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.isSmallScreen)
+    clearInterval(this.interval)
+  },
+  mounted() {
+    this.reportData()
+    window.addEventListener('resize', this.isSmallScreen)
+    this.interval = setInterval(() => {
+      this.reportData()
+    }, 300000)
+  },
+  methods: {
+    isSmallScreen() {
+      return window.innerWidth <= 850
+    },
+    reportData() {
+      axios
+        .post('/get-Data-Report-All', { location_id: this.$route.query.location_id })
+        .then(response => {
+          this.location_id = response.data[0].location_id
+          this.dept_name = response.data[0].dept_name
+          this.dept_group = response.data[0].dept_group
+          this.road_code = response.data[0].road_code
+          this.road_name = response.data[0].road_name
+          this.amphoe = response.data[0].amphoe
+          this.province = response.data[0].province
+          this.sta = response.data[0].sta
+          this.distance_km = response.data[0].distance_km
+          this.installation_point = response.data[0].installation_point
+          this.latitude = response.data[0].latitude
+          this.longitude = response.data[0].longitude
+          this.pcu = response.data[0].pcu
+          this.note = response.data[0].note
+          this.map_picture = response.data[0].map_picture
+          this.cam_picture = response.data[0].cam_picture
+          this.setup_picture = response.data[0].setup_picture
+          this.day_count = response.data[0].day_count
+          this.pcu_avg = response.data[0].pcu_avg
+          this.vehicle_max = response.data[0].vehicle_max
+          this.vehicle_class = response.data[0].vehicle_class
+          this.AADT = response.data[0].AADT
+          this.percent_truck = response.data[0].percent_truck
+          this.speed_max = response.data[0].speed_max
+          this.speed_avg = response.data[0].speed_avg
+          this.speed85th = response.data[0].speed85th
+          this.lane_density = response.data[0].lane_density
+          this.CLV = response.data[0].CLV
+          this.VKT = response.data[0].VKT
+          this.PHF = response.data[0].PHF
+          this.LOS = response.data[0].LOS
+          this.VC_Ratio = response.data[0].VC_Ratio
+          this.pcu_hour = response.data[0].traffic_flow_rate
+          this.MinDate = response.data[0].MinDate
+          this.MaxDate = response.data[0].MaxDate
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+  },
+}
+</script>
+
+<style>
+</style>

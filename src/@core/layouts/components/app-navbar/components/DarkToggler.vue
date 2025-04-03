@@ -1,5 +1,8 @@
 <template>
-  <b-nav-item @click="skin = isDark ? 'light' : 'dark'">
+  <b-nav-item
+    class="hidden"
+    @click="skin = isDark ? 'light' : 'dark'"
+  >
     <feather-icon
       size="21"
       :icon="`${isDark ? 'Sun' : 'Moon'}Icon`"

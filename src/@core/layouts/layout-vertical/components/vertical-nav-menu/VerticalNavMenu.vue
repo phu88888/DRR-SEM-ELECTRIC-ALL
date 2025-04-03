@@ -30,9 +30,9 @@
                   alt="logo"
                 />
               </span>
-              <h2 class="brand-text">
-                {{ appName }}
-              </h2>
+              <span style="font-size: 16px; margin-left: 22px; color: #CCAF61; text-shadow: 1px 1px 2px #E4AD18; font-weight: 500;">
+                Vehicle Count All
+              </span>
             </b-link>
           </li>
 
@@ -81,12 +81,12 @@
 </template>
 
 <script>
-import navMenuItems from '@/navigation/vertical'
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 import { BLink, BImg } from 'bootstrap-vue'
 import { provide, computed, ref } from '@vue/composition-api'
 import useAppConfig from '@core/app-config/useAppConfig'
 import { $themeConfig } from '@themeConfig'
+import navMenuItems from '@/navigation/vertical'
 import VerticalNavMenuItems from './components/vertical-nav-menu-items/VerticalNavMenuItems.vue'
 import useVerticalNavMenu from './useVerticalNavMenu'
 
@@ -134,6 +134,7 @@ export default {
     const { appName, appLogoImage } = $themeConfig.app
 
     return {
+      userData: JSON.parse(localStorage.getItem('userData')),
       navMenuItems,
       perfectScrollbarSettings,
       isVerticalMenuCollapsed,
