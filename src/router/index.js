@@ -67,6 +67,14 @@ const router = new VueRouter({
       },
     },
     {
+      path: '/Diagram',
+      name: 'diagram',
+      component: () => import('@/views/detail/SEMDiagram.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
       path: '/TransactionLog',
       name: 'transactionlog',
       component: () => import('@/views/log/TransactionLog.vue'),

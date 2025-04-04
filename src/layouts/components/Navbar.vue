@@ -1,7 +1,7 @@
 <template>
   <div
     class="navbar-container d-flex content align-items-center"
-    style="background: linear-gradient(141deg, rgba(208, 237, 255,1) 0%, rgba(160, 219, 255,1) 36%, rgba(49,115,152,0.58) 58%, rgba(217, 255, 255,1) 100%);"
+    style="background: linear-gradient(141deg, rgba(64, 186, 178,1) 0%, rgba(64, 186, 178,1) 36%, rgba(31, 125, 83,0.58) 58%, rgba(31, 125, 83,1) 100%);"
   >
 
     <!-- Nav Menu Toggler -->
@@ -176,6 +176,31 @@
                 style="padding: 5px; font-size: 15px; color: #000;"
               >
                 Log
+              </label>
+            </b-button>
+          </b-navbar-nav>
+        </b-link>
+      </div>
+
+      <div>
+        <b-link
+          to="diagram"
+        >
+          <b-navbar-nav class="nav">
+            <b-button
+              pill
+              variant="flat-primary"
+              style="padding-bottom: 8px;"
+            >
+              <feather-icon
+                style="height: 35px; color: #003885;"
+                icon="FileIcon"
+                size="23"
+              />
+              <label
+                style="padding: 5px; font-size: 15px; color: #000;"
+              >
+                TEST Dia
               </label>
             </b-button>
           </b-navbar-nav>
