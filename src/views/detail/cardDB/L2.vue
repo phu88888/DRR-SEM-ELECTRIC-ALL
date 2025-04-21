@@ -1,0 +1,258 @@
+<template>
+  <div>
+    <b-row>
+      <b-col
+        lg="12"
+        md="12"
+        sm="12"
+      >
+        <b-card
+          class="l2-gradient-border-card d-flex justify-content-center align-items-center"
+          style="background-color:rgba(0, 0, 0, 0.6); color:#ffffff; text-align: center;"
+        >
+          <b-row class="w-100">
+            <b-col
+              lg="12"
+              md="12"
+              sm="12"
+              class="mb-2"
+            >
+              <span class="l2-label">L2</span>
+            </b-col>
+
+            <b-col
+              lg="12"
+              md="12"
+              sm="12"
+              class="my-2"
+            >
+              <b-row>
+                <b-col
+                  lg="6"
+                  md="6"
+                  sm="6"
+                  xs="6"
+                >
+                  <span class="info-label">Volt</span>
+                </b-col>
+                <b-col
+                  lg="6"
+                  md="6"
+                  sm="6"
+                  xs="6"
+                >
+                  <span class="info-label">kWh</span>
+                </b-col>
+              </b-row>
+            </b-col>
+
+            <b-col
+              lg="12"
+              md="12"
+              sm="12"
+              class="my-2"
+            >
+              <b-row>
+                <b-col
+                  lg="6"
+                  md="6"
+                  sm="6"
+                  xs="6"
+                >
+                  <span class="info-label shadow1">Amp</span>
+                </b-col>
+                <b-col
+                  lg="6"
+                  md="6"
+                  sm="6"
+                  xs="6"
+                >
+                  <span class="info-label">Hz</span>
+                </b-col>
+              </b-row>
+            </b-col>
+
+            <b-col
+              lg="12"
+              md="12"
+              sm="12"
+              class="my-2"
+            >
+              <b-row>
+                <b-col
+                  lg="6"
+                  md="6"
+                  sm="6"
+                  xs="6"
+                >
+                  <span class="info-label">Watt</span>
+                </b-col>
+                <b-col
+                  lg="6"
+                  md="6"
+                  sm="6"
+                  xs="6"
+                >
+                  <span class="info-label">Pf</span>
+                </b-col>
+              </b-row>
+            </b-col>
+          </b-row>
+        </b-card>
+      </b-col>
+    </b-row>
+  </div>
+</template>
+
+<script>
+import axios from '@axios'
+import {
+  BRow, BCol, BCard, VBModal,
+} from 'bootstrap-vue'
+import Ripple from 'vue-ripple-directive'
+
+export default {
+  components: {
+    BCard,
+    BRow,
+    BCol,
+    // BProgress,
+    // BImg,
+
+  },
+  directives: {
+    'b-modal': VBModal,
+    Ripple,
+  },
+  data() {
+    return {
+      url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png',
+      progress: [],
+    }
+  },
+  computed: {
+    maxPCU() {
+      // Calculate a new max such that the highest max_pcu value shows at 80% of the bar
+      const maxPcu = this.progress.reduce((max, item) => Math.max(max, item.max_pcu), 0)
+      return maxPcu / 0.9 // Dividing by 0.8 (which is the same as multiplying by 1.25)
+    },
+  },
+  beforeDestroy() {
+    clearInterval(this.interval)
+  },
+  mounted() {
+    this.getTop5()
+    setTimeout(() => {
+    }, 1000)
+    this.interval = setInterval(() => {
+      this.getTop5()
+    }, 300000)
+  },
+  methods: {
+    getTop5() {
+      axios
+        .post('/top5-PCUDB-All')
+        .then(response => {
+          // eslint-disable-next-line prefer-destructuring
+          this.progress = response.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    getProgressClass(index) {
+      const colors = ['progress-red', 'progress-blue', 'progress-green', 'progress-yellow', 'progress-purple']
+      return colors[index % colors.length] // cycle through colors
+    },
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+@import '@core/scss/vue/libs/vue-flatpicker.scss';
+.transparent-card {
+  font-size:18px;
+  background-color:rgba(0, 0, 0, 0.5);
+  color:#ffffff;
+  height: 120px;
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+}
+.shadow1 {
+  filter: drop-shadow(1px 1px 1px rgba(0, 8, 59,0.5));
+}
+
+// .progress-red .progress-bar { background: linear-gradient(90deg, #e65786 46.03%, rgb(255, 245, 244) 100%); }
+// .progress-blue .progress-bar { background: linear-gradient(90deg, #f77e8e 46.03%, rgb(255, 245, 244) 100%); }
+// .progress-green .progress-bar { background: linear-gradient(90deg, #f48c80 46.03%, rgb(255, 245, 244) 100%); }
+// .progress-yellow .progress-bar { background: linear-gradient(90deg, #f1ac8c 46.03%, rgb(255, 245, 244) 100%); }
+// .progress-purple .progress-bar { background: linear-gradient(90deg, #f6dc9f 46.03%, rgb(255, 245, 244) 100%); }
+
+.l2-gradient-border-card {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border: none !important;
+  width: 100%;
+  height: 304px;
+  border-radius: 20px;
+  position: relative;
+}
+
+/* สร้าง pseudo-element เพื่อทำ gradient border */
+.l2-gradient-border-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  padding: 2px; /* ความหนาของ border */
+  background: linear-gradient(0.25turn, #803C31, #A92022);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Responsive text styling */
+.l2-label {
+  color: #fff;
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.info-label {
+  color: #fff;
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+  .l2-label, .info-label {
+    font-size: 15px;
+  }
+
+  .l2-gradient-border-card {
+    padding: 0px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+  .l2-label, .info-label {
+    font-size: 14px;
+  }
+}
+</style>

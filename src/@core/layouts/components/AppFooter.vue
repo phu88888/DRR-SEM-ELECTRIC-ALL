@@ -1,7 +1,7 @@
 <template>
   <p
     v-if="!$route.meta.hideFooter"
-    class="clearfix mb-0"
+    class="clearfix mb-0 hidden"
   >
     <span class="float-md-left d-block d-md-inline-block mt-25">
       COPYRIGHT  © {{ new Date().getFullYear() }}

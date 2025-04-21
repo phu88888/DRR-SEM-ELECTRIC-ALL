@@ -16,17 +16,17 @@
 
 //Body
 $theme-dark-body-bg: rgb(120, 196, 219) !default;
-$theme-dark-body-color: #0e1d49 !default;
+$theme-dark-body-color: #ffffff !default;
 $theme-dark-border-color: #3b4253 !default;
 $theme-dark-custom-control-border-color: #44405e !default;
 
 //Typography
-$theme-dark-headings-color: #0e1d49 !default;
-$theme-dark-label-color: #0e1d49 !default;
+$theme-dark-headings-color: #ffffff !default;
+$theme-dark-label-color: #ffffff !default;
 $theme-dark-text-muted-color: #676d7d !default;
 
 //Card
-$theme-dark-card-bg: #eaf7ff !default;
+$theme-dark-card-bg: rgba(0, 0, 0, 1.0) !default;
 $theme-dark-box-shadow: 0 4px 24px 0 rgba($black, 0.24);
 
 //Input
@@ -41,7 +41,7 @@ $theme-dark-switch-bg: #545a6a;
 $theme-dark-switch-bg-disabled: #1b2337;
 
 //Table
-$theme-dark-table-bg: rgba(255, 255, 255, 0.3) !default;
+$theme-dark-table-bg: rgba(255, 123, 255, 0.0) !default;
 $theme-dark-table-header-bg: #daf8ff !default;
 $theme-dark-table-row-bg: #18242E !default;
 $theme-dark-table-hover-bg: #9adfff !default;

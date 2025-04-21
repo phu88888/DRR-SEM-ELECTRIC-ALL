@@ -19,14 +19,6 @@ const router = new VueRouter({
       },
     },
     {
-      path: '/detail',
-      name: 'detail',
-      component: () => import('@/views/detail/Dashboard.vue'),
-      meta: {
-        requiresAuth: true,
-      },
-    },
-    {
       path: '/user',
       name: 'user',
       component: () => import('@/views/user/User.vue'),
