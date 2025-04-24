@@ -10,7 +10,7 @@
         <b-row>
           <b-col
             cols="12"
-            class="d-flex align-items-center justify-content-center"
+            class="d-flex align-items-center justify-content-center mb-1"
           >
             <ColorScale1 style="margin-right: 3rem;" />
             <span
@@ -43,7 +43,7 @@
         <b-row>
           <b-col
             cols="12"
-            class="d-flex align-items-center justify-content-center paddingmobile"
+            class="d-flex align-items-center justify-content-center mb-1"
           >
             <ColorScale1 style="margin-right: 3rem;" />
             <span

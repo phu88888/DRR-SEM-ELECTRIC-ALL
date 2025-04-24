@@ -1,19 +1,26 @@
 <template>
-  <div class="mt-1">
-    <b-card style="background-color: rgb(255, 127, 96, 0.0); width: 100%; height: 100%; border: 2px solid #00B058; border-radius: 40px 4px 40px 4px;">
-      <b-row>
-        <b-col
-          lg="12"
-          class="d-flex align-items-center justify-content-start mb-1"
-        >
-          <b-img
-            height="25"
-            src="@/assets/images/icons/iconmapsem/map.png"
-            class="mr-1"
-          />
-          <label style="color:white; font-size: 16px;">แผนที่จุดติดตั้ง</label>
-        </b-col>
-      </b-row>
+  <div>
+    <b-row>
+      <b-col
+        cols="12"
+        class="d-flex align-items-center justify-content-center mb-1"
+      >
+        <ColorScale1 style="margin-right: 5%; width: 6.2%;" />
+        <!-- <b-img
+          height="25"
+          src="@/assets/images/icons/iconmapsem/map.png"
+          class="mr-1"
+        /> -->
+        <span style="color:#ffffff; font-size: 22px;">
+          แผนที่จุดติดตั้ง
+        </span>
+        <ColorScale2 style="margin-left: 3rem;" />
+      </b-col>
+    </b-row>
+    <b-card
+      class="gradient-border-card-map"
+      style="background-color: rgb(0, 0, 0, 0.6); width: 100%; height: 445px;"
+    >
       <b-row>
         <b-col
           lg="12"
@@ -275,7 +282,7 @@
 /* eslint-disable global-require */
 import {
   BRow, BCol, BTable, BBadge, BImg, BCard, BToast,
-  BCollapse,
+  BCollapse, VBToggle,
 } from 'bootstrap-vue'
 import {
   LMap, LTileLayer, LMarker, LIcon, LPopup,
@@ -286,6 +293,10 @@ import { Icon } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-fullscreen/dist/leaflet.fullscreen.css'
 import 'leaflet-fullscreen/dist/Leaflet.fullscreen'
+/* eslint-disable global-require */
+
+import ColorScale1 from '@/views/detail/cardDB/ColorScale1.vue'
+import ColorScale2 from '@/views/detail/cardDB/ColorScale2.vue'
 // eslint-disable-next-line no-underscore-dangle
 delete Icon.Default.prototype._getIconUrl
 Icon.Default.mergeOptions({
@@ -293,7 +304,7 @@ Icon.Default.mergeOptions({
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 })
-/* eslint-disable global-require */
+
 export default {
   components: {
     BRow,
@@ -309,9 +320,13 @@ export default {
     BCard,
     BToast,
     BCollapse,
+
+    ColorScale1,
+    ColorScale2,
   },
   directives: {
     Ripple,
+    'b-toggle': VBToggle,
   },
   data() {
     return {
@@ -640,5 +655,34 @@ export default {
 }
 .toast-body{
   background-color: #fff;
+}
+
+.gradient-border-card-map {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border: none !important;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  position: relative;
+}
+
+/* สร้าง pseudo-element เพื่อทำ gradient border */
+.gradient-border-card-map::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  padding: 2px; /* ความหนาของ border */
+  background: linear-gradient(0.25turn, #40BAB2, #1F7D53, #A92022);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 </style>

@@ -4,10 +4,10 @@
       <b-col lg="12">
         <b-row>
           <b-col
-            cols="8"
-            class="d-flex align-items-center justify-content-end"
+            cols="12"
+            class="d-flex align-items-center justify-content-center mb-1"
           >
-            <ColorScale1 style="margin-right: 3rem;" />
+            <ColorScale1 style="margin-right: 3rem; width: 8%;" />
             <h3 style="color:#ffffff;">
               Single line Diagram
             </h3>

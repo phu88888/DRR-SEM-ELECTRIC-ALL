@@ -60,6 +60,13 @@
       >
         <SEMMap />
       </b-col>
+      <b-col
+        lg="12"
+        md="12"
+        sm="12"
+      >
+        <SEMTable />
+      </b-col>
     </b-row>
   </div>
 </template>
@@ -78,6 +85,7 @@ import L2 from '@/views/detail/cardDB/L2.vue'
 import L3 from '@/views/detail/cardDB/L3.vue'
 import EchartSem from '@/views/detail/cardDB/echartsem/SEMChart.vue'
 import SEMMap from '@/views/detail/cardDB/SEMMapDetail.vue'
+import SEMTable from '@/views/detail/cardDB/SEMLog.vue'
 
 // import CardVMS from '@/views/dashboard/cardDB/CardVMSDB.vue'
 // import CardTraffic from '@/views/dashboard/cardDB/CardTrafficDB.vue'
@@ -93,6 +101,7 @@ export default {
     L3,
     EchartSem,
     SEMMap,
+    SEMTable,
     // BCardHeader,
     BRow,
     BCol,

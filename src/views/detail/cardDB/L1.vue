@@ -33,7 +33,7 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">Volt</span>
+                  <span class="info-label">Volt : {{ voltP1 }}</span>
                 </b-col>
                 <b-col
                   lg="6"
@@ -41,33 +41,7 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">kWh</span>
-                </b-col>
-              </b-row>
-            </b-col>
-
-            <b-col
-              lg="12"
-              md="12"
-              sm="12"
-              class="my-2"
-            >
-              <b-row>
-                <b-col
-                  lg="6"
-                  md="6"
-                  sm="6"
-                  xs="6"
-                >
-                  <span class="info-label shadow1">Amp</span>
-                </b-col>
-                <b-col
-                  lg="6"
-                  md="6"
-                  sm="6"
-                  xs="6"
-                >
-                  <span class="info-label">Hz</span>
+                  <span class="info-label">kWh : {{ kwhP1 }}</span>
                 </b-col>
               </b-row>
             </b-col>
@@ -85,7 +59,7 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">Watt</span>
+                  <span class="info-label shadow1">Amp : {{ ampP1 }}</span>
                 </b-col>
                 <b-col
                   lg="6"
@@ -93,7 +67,33 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">Pf</span>
+                  <span class="info-label">Hz : {{ hzP1 }}</span>
+                </b-col>
+              </b-row>
+            </b-col>
+
+            <b-col
+              lg="12"
+              md="12"
+              sm="12"
+              class="my-2"
+            >
+              <b-row>
+                <b-col
+                  lg="6"
+                  md="6"
+                  sm="6"
+                  xs="6"
+                >
+                  <span class="info-label">Watt : {{ wattP1 }}</span>
+                </b-col>
+                <b-col
+                  lg="6"
+                  md="6"
+                  sm="6"
+                  xs="6"
+                >
+                  <span class="info-label">Pf : {{ pfP1 }}</span>
                 </b-col>
               </b-row>
             </b-col>
@@ -125,6 +125,12 @@ export default {
     return {
       url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png',
       progress: [],
+      voltP1: 0,
+      ampP1: 0,
+      wattP1: 0,
+      pfP1: 0,
+      kwhP1: 0,
+      hzP1: 0,
     }
   },
   computed: {
@@ -136,6 +142,13 @@ export default {
   beforeDestroy() {
     clearInterval(this.interval)
   },
+  created() {
+    // this.getbarChartCounting()
+    this.getMarkerSem()
+    this.interval = setInterval(() => {
+      this.getMarkerSem()
+    }, 300000)
+  },
   mounted() {
     this.getTop5()
     setTimeout(() => {
@@ -145,6 +158,22 @@ export default {
     }, 300000)
   },
   methods: {
+    getMarkerSem() {
+      axios
+        .post('/getDiagram3P', { wid: this.$route.query.wid })
+        .then(response => {
+          this.items = response.data
+          this.voltP1 = this.items[0].volt
+          this.ampP1 = this.items[0].amp
+          this.wattP1 = this.items[0].watt
+          this.pfP1 = this.items[0].pf
+          this.kwhP1 = this.items[0].kwh
+          this.hzP1 = this.items[0].hz
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
     getTop5() {
       axios
         .post('/top5-PCUDB-All')
