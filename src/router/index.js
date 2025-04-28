@@ -179,13 +179,13 @@ const router = new VueRouter({
       name: 'semcontrol3p-problem',
       component: () => import('@/views/detail/cardDB/SEMControl3Problem.vue'),
       meta: {
-        pageTitle: 'semcontrol-problem',
-        breadcrumb: [
-          {
-            text: 'semcontrol-problem',
-            active: true,
-          },
-        ],
+        // pageTitle: 'semcontrol-problem',
+        // breadcrumb: [
+        //   {
+        //     text: 'semcontrol-problem',
+        //     active: true,
+        //   },
+        // ],
       },
     },
     {
