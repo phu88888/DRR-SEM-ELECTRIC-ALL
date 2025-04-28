@@ -175,6 +175,20 @@ const router = new VueRouter({
       },
     },
     {
+      path: '/semcontrol3p-problem',
+      name: 'semcontrol3p-problem',
+      component: () => import('@/views/detail/cardDB/SEMControl3Problem.vue'),
+      meta: {
+        pageTitle: 'semcontrol-problem',
+        breadcrumb: [
+          {
+            text: 'semcontrol-problem',
+            active: true,
+          },
+        ],
+      },
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import('@/views/Login.vue'),
