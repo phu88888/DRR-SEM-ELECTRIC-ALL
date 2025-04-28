@@ -33,7 +33,7 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">Volt : {{ voltP3 }}</span>
+                  <span class="info-label">Volt : <span style="color: #fff">{{ voltP3 }}</span></span>
                 </b-col>
                 <b-col
                   lg="6"
@@ -41,33 +41,7 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">kWh : {{ kwhP3 }}</span>
-                </b-col>
-              </b-row>
-            </b-col>
-
-            <b-col
-              lg="12"
-              md="12"
-              sm="12"
-              class="my-2"
-            >
-              <b-row>
-                <b-col
-                  lg="6"
-                  md="6"
-                  sm="6"
-                  xs="6"
-                >
-                  <span class="info-label shadow1">Amp : {{ ampP3 }}</span>
-                </b-col>
-                <b-col
-                  lg="6"
-                  md="6"
-                  sm="6"
-                  xs="6"
-                >
-                  <span class="info-label">Hz : {{ hzP3 }}</span>
+                  <span class="info-label">kWh : <span style="color: #fff">{{ kwhP3 }}</span></span>
                 </b-col>
               </b-row>
             </b-col>
@@ -85,7 +59,7 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">Watt : {{ wattP3 }}</span>
+                  <span class="info-label shadow1">Amp : <span style="color: #fff">{{ ampP3 }}</span></span>
                 </b-col>
                 <b-col
                   lg="6"
@@ -93,7 +67,33 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">Pf : {{ pfP3 }}</span>
+                  <span class="info-label">Hz : <span style="color: #fff">{{ hzP3 }}</span></span>
+                </b-col>
+              </b-row>
+            </b-col>
+
+            <b-col
+              lg="12"
+              md="12"
+              sm="12"
+              class="my-2"
+            >
+              <b-row>
+                <b-col
+                  lg="6"
+                  md="6"
+                  sm="6"
+                  xs="6"
+                >
+                  <span class="info-label">Watt : <span style="color: #fff">{{ wattP3 }}</span></span>
+                </b-col>
+                <b-col
+                  lg="6"
+                  md="6"
+                  sm="6"
+                  xs="6"
+                >
+                  <span class="info-label">Pf : <span style="color: #fff">{{ pfP3 }}</span></span>
                 </b-col>
               </b-row>
             </b-col>
@@ -249,7 +249,7 @@ export default {
 }
 
 .info-label {
-  color: #fff;
+  color: #FFFFD5;
   font-size: 20px;
   display: block;
   width: 100%;
