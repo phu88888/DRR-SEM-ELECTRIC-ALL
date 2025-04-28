@@ -17,7 +17,7 @@
       >
         <a>
           <b-button
-            :to="{ path: `/semcontrol3p-problem?wid=${$route.query.wid}`}"
+            :to="{ path: `/semcontrol3p-problem?wid=${$route.query.wid}&type=${this.$route.query.type}`}"
             variant="danger"
             class="btn-icon dark-red-btn"
             style="height:auto;"
