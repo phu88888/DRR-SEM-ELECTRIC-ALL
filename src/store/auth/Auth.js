@@ -26,7 +26,7 @@ export default {
   actions: {
     async login({ commit }, { username, password }) {
       try {
-        const res = await axios.post('/login-DRR-Vehicle-All', { username, password })
+        const res = await axios.post('/login-DRR-Electic-Sem', { username, password })
         localStorage.setItem('userData', JSON.stringify(res.data))
         commit('auth_success', res.data)
       } catch (error) {

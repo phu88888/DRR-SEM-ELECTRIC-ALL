@@ -32,7 +32,7 @@
         </b-link>
       </div>
       <!-- <dark-toggler class="d-none d-lg-block" /> -->
-      <div>
+      <!-- <div>
         <b-link
           to="/"
         >
@@ -55,9 +55,9 @@
             </b-button>
           </b-navbar-nav>
         </b-link>
-      </div>
+      </div> -->
 
-      <div>
+      <!-- <div>
         <b-link
           to="location"
         >
@@ -80,9 +80,9 @@
             </b-button>
           </b-navbar-nav>
         </b-link>
-      </div>
+      </div> -->
 
-      <div>
+      <!-- <div>
         <b-link
           to="cctv"
         >
@@ -105,9 +105,9 @@
             </b-button>
           </b-navbar-nav>
         </b-link>
-      </div>
+      </div> -->
 
-      <div>
+      <!-- <div>
         <b-link
           to="resultPCU"
         >
@@ -130,9 +130,9 @@
             </b-button>
           </b-navbar-nav>
         </b-link>
-      </div>
+      </div> -->
 
-      <div>
+      <!-- <div>
         <b-link
           to="log"
         >
@@ -155,9 +155,9 @@
             </b-button>
           </b-navbar-nav>
         </b-link>
-      </div>
+      </div> -->
 
-      <div>
+      <!-- <div>
         <b-link
           to="transactionlog"
         >
@@ -180,7 +180,7 @@
             </b-button>
           </b-navbar-nav>
         </b-link>
-      </div>
+      </div> -->
 
       <div>
         <b-link

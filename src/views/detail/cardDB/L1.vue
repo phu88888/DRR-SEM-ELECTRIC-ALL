@@ -8,7 +8,7 @@
       >
         <b-card
           class="l1-gradient-border-card d-flex justify-content-center align-items-center"
-          style="background-color:rgba(0, 0, 0, 0.6); color:#ffffff; text-align: center;"
+          style="background-color:rgba(0, 0, 0, 0.6); color:#ffffff; text-align: center; width: 100%; height: 304px; border-radius: 20px;"
         >
           <b-row class="w-100">
             <b-col
@@ -24,7 +24,7 @@
               lg="12"
               md="12"
               sm="12"
-              class="my-2"
+              class="my-1"
             >
               <b-row>
                 <b-col
@@ -33,7 +33,10 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">Volt : <span style="color: #fff">{{ voltP1 }}</span></span>
+                  <span
+                    class="info-label"
+                    style="text-align: left; margin-left: 45px;"
+                  >Volt : <span style="color: #fff">{{ voltP1 }}</span></span>
                 </b-col>
                 <b-col
                   lg="6"
@@ -41,7 +44,10 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">kWh : <span style="color: #fff">{{ kwhP1 }}</span></span>
+                  <span
+                    class="info-label"
+                    style="text-align: left; margin-left: 45px;"
+                  >kWh : <span style="color: #fff">{{ kwhP1 }}</span></span>
                 </b-col>
               </b-row>
             </b-col>
@@ -59,7 +65,10 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label shadow1">Amp : <span style="color: #fff">{{ ampP1 }}</span></span>
+                  <span
+                    class="info-label"
+                    style="text-align: left; margin-left: 45px;"
+                  >Amp : <span style="color: #fff">{{ ampP1 }}</span></span>
                 </b-col>
                 <b-col
                   lg="6"
@@ -67,7 +76,10 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">Hz : <span style="color: #fff">{{ hzP1 }}</span></span>
+                  <span
+                    class="info-label"
+                    style="text-align: left; margin-left: 45px;"
+                  >Hz : <span style="color: #fff">{{ hzP1 }}</span></span>
                 </b-col>
               </b-row>
             </b-col>
@@ -85,7 +97,10 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">Watt : <span style="color: #fff">{{ wattP1 }}</span></span>
+                  <span
+                    class="info-label"
+                    style="text-align: left; margin-left: 45px;"
+                  >Watt : <span style="color: #fff">{{ wattP1 }}</span></span>
                 </b-col>
                 <b-col
                   lg="6"
@@ -93,7 +108,10 @@
                   sm="6"
                   xs="6"
                 >
-                  <span class="info-label">Pf : <span style="color: #fff">{{ pfP1 }}</span></span>
+                  <span
+                    class="info-label"
+                    style="text-align: left; margin-left: 45px;"
+                  >Pf : <span style="color: #fff">{{ pfP1 }}</span></span>
                 </b-col>
               </b-row>
             </b-col>
