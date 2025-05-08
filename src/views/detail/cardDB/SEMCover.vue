@@ -5,7 +5,7 @@
         cols="9"
         class="mb-1"
       >
-        <b-link
+        <!-- <b-link
           style="font-size: 26px; color: #fff;"
           :to="`/lighting-sub?DeptID=${deptid}`"
         >
@@ -14,7 +14,7 @@
             size="34"
             icon="ArrowLeftIcon"
           /> <span style="color: #00FF80;"> ไฟฟ้าส่องสว่าง: </span> {{ waydetail }}
-        </b-link>
+        </b-link> -->
       </b-col>
       <b-col
         cols="3"
