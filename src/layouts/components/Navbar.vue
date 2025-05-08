@@ -22,14 +22,10 @@
     <!-- Left Col -->
     <div class="bookmark-wrapper align-items-center flex-grow-1 d-none d-lg-flex">
       <div class="logo-container">
-        <b-link
-          to="/"
-        >
-          <b-img
-            style="height: 50px;"
-            src="@/assets/images/logo/logosem-navbar.png"
-          />
-        </b-link>
+        <b-img
+          style="height: 50px;"
+          src="@/assets/images/logo/logo2.png"
+        />
       </div>
       <!-- <dark-toggler class="d-none d-lg-block" /> -->
       <!-- <div>
@@ -183,28 +179,25 @@
       </div> -->
 
       <div>
-        <b-link
-          to="diagram"
-        >
-          <b-navbar-nav class="nav">
-            <b-button
-              pill
-              variant="flat-primary"
-              style="padding-bottom: 8px;"
+
+        <b-navbar-nav class="nav">
+          <b-button
+            pill
+            variant="flat-primary"
+            style="padding-bottom: 8px;"
+          >
+            <feather-icon
+              style="height: 35px; color: #003885;"
+              icon="FileIcon"
+              size="23"
+            />
+            <label
+              style="padding: 5px; font-size: 15px; color: #000;"
             >
-              <feather-icon
-                style="height: 35px; color: #003885;"
-                icon="FileIcon"
-                size="23"
-              />
-              <label
-                style="padding: 5px; font-size: 15px; color: #000;"
-              >
-                หน้าหลัก
-              </label>
-            </b-button>
-          </b-navbar-nav>
-        </b-link>
+              Diagram
+            </label>
+          </b-button>
+        </b-navbar-nav>
       </div>
     </div>
 
