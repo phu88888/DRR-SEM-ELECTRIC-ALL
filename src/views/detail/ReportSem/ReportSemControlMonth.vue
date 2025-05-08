@@ -389,14 +389,14 @@ export default {
     },
     getHistory() {
       axios
-        .post('/reportSEMControl3PMonth', this.date)
+        .post('/reportSEMControl3PMonth-Electic', this.date)
         .then(response => {
           this.items = response.data
           this.totalRows = response.data.length
         })
     },
     graphLine() {
-      axios.post('/reportGraphSEMControl3PMonth', this.date)
+      axios.post('/reportGraphSEMControl3PMonth-Electic', this.date)
         .then(response => {
           this.xAxisData = []
           this.xAxisData = response.data

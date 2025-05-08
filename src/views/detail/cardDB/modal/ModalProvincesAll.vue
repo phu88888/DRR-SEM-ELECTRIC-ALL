@@ -174,7 +174,7 @@ export default {
     },
     getPopupProvincesAll() {
       axios
-        .post('/modal-ProvinceDB-All')
+        .post('/modal-ProvinceDB-All-Electic')
         .then(response => {
           // eslint-disable-next-line prefer-destructuring
           this.items = response.data

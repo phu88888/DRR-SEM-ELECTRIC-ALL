@@ -95,7 +95,7 @@ export default {
   methods: {
     getRoutesAll() {
       axios
-        .post('/count-RoadDB-All')
+        .post('/count-RoadDB-All-Electic')
         .then(response => {
           this.TotalRoad = response.data[0].count_road.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
         })
@@ -103,7 +103,7 @@ export default {
           console.log(error)
         })
       axios
-        .post('/count-LocationDB-All')
+        .post('/count-LocationDB-All-Electic')
         .then(response => {
           this.TotalLocation = response.data[0].count_location.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
         })

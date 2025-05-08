@@ -10,10 +10,18 @@ const router = new VueRouter({
     return { x: 0, y: 0 }
   },
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'dashboard',
+    //   component: () => import('@/views/dashboard/Dashboard.vue'),
+    //   meta: {
+    //     requiresAuth: true,
+    //   },
+    // },
     {
       path: '/',
       name: 'dashboard',
-      component: () => import('@/views/dashboard/Dashboard.vue'),
+      component: () => import('@/views/detail/SEMDiagram.vue'),
       meta: {
         requiresAuth: true,
       },

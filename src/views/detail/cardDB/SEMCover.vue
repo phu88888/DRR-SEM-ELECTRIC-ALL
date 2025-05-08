@@ -5,16 +5,17 @@
         cols="9"
         class="mb-1"
       >
-        <!-- <b-link
+        <b-link
           style="font-size: 26px; color: #fff;"
-          :to="`/lighting-sub?DeptID=${deptid}`"
         >
+          <!-- :to="`/lighting-sub?DeptID=${deptid}`" -->
           <feather-icon
+            class="hidden"
             style="margin-bottom: 5px;"
             size="34"
             icon="ArrowLeftIcon"
           /> <span style="color: #00FF80;"> ไฟฟ้าส่องสว่าง: </span> {{ waydetail }}
-        </b-link> -->
+        </b-link>
       </b-col>
       <b-col
         cols="3"
@@ -199,7 +200,7 @@ export default {
   methods: {
     getAlertFireAlarm() {
       axios
-        .post('/checkSemEventLog')
+        .post('/checkSemEventLog-Electic')
         .then(response => {
           if (response.data.lenght !== 0) {
             this.ack = response.data[0].ack
@@ -217,7 +218,7 @@ export default {
     },
     getCenterSem() {
       axios
-        .post('/waySEMControlDetail', { wid: this.$route.query.wid })
+        .post('/waySEMControlDetail-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.center = []
           this.zoom = response.data[0].mapzoom
@@ -233,7 +234,7 @@ export default {
     },
     getValueDiagram() {
       axios
-        .post('/valueDiagram', { wid: this.$route.query.wid })
+        .post('/valueDiagram-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.sem_type = response.data[0].firmware
           this.diagram_type = response.data[0].diagram_type

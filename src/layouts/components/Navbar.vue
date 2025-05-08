@@ -27,7 +27,7 @@
         >
           <b-img
             style="height: 50px;"
-            src="@/assets/images/logo/logo2.png"
+            src="@/assets/images/logo/logosem-navbar.png"
           />
         </b-link>
       </div>
@@ -200,7 +200,7 @@
               <label
                 style="padding: 5px; font-size: 15px; color: #000;"
               >
-                TEST Dia
+                หน้าหลัก
               </label>
             </b-button>
           </b-navbar-nav>
@@ -237,6 +237,7 @@
           v-if="userData.role === 'Admin'"
           link-class="d-flex align-items-center"
           to="user"
+          class="hidden"
         >
           <feather-icon
             size="16"

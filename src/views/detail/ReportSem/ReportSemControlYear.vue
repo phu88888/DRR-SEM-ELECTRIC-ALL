@@ -413,14 +413,14 @@ export default {
     },
     getHistory() {
       axios
-        .post('/reportSEMControl3PYears', this.date)
+        .post('/reportSEMControl3PYears-Electic', this.date)
         .then(response => {
           this.items = response.data
           this.totalRows = response.data.length
         })
     },
     graphLine() {
-      axios.post('/reportGraphSEMControl3PYears', this.date)
+      axios.post('/reportGraphSEMControl3PYears-Electic', this.date)
         .then(response => {
           this.xAxisData = []
           this.xAxisData = response.data

@@ -245,7 +245,7 @@ export default {
   methods: {
     getTableLog() {
       axios
-        .post('/get-Change-Log-All')
+        .post('/get-Change-Log-All-Electic')
         .then(response => {
           this.items = response.data
           this.totalRows = response.data.length

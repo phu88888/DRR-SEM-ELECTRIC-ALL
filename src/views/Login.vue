@@ -8,7 +8,7 @@
 
           <b-img
             class="logo-login"
-            src="@/assets/images/logo/loginnew2.svg"
+            src="@/assets/images/logo/loginnew3.png"
           />
           <!-- Login v1 -->
           <b-card
@@ -57,7 +57,7 @@
                           width="18px;"
                           height="20px;"
                           src="@/assets/images/icons/login/User.svg"
-                          style="filter: brightness(0);"
+                          style="filter: brightness(0) invert(1);"
                         />
                       </b-input-group-prepend>
                       <b-form-input
@@ -101,7 +101,7 @@
                           width="18px;"
                           height="20px;"
                           src="@/assets/images/icons/login/Lock.svg"
-                          style="filter: brightness(0);"
+                          style="filter: brightness(0) invert(1);"
                         />
                       </b-input-group-prepend>
                       <b-form-input

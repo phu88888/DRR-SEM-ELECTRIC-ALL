@@ -132,7 +132,7 @@ export default {
   methods: {
     getSemEvent() {
       axios
-        .post('/getSem1EventLog', { wid: this.$route.query.wid })
+        .post('/getSem1EventLog-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.items = response.data
         })

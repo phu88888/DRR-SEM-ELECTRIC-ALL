@@ -280,7 +280,7 @@ export default {
   methods: {
     getTableSEM() {
       axios
-        .post('/troubleSEMControlDetail', { wid: this.$route.query.wid })
+        .post('/troubleSEMControlDetail-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.items = response.data
           this.totalRows = response.data.length
@@ -309,7 +309,7 @@ export default {
       }).then(async result => {
         if (result.value) {
           try {
-            await axios.post('/deleteTroubleSEMControlDetail', { tid: id })
+            await axios.post('/deleteTroubleSEMControlDetail-Electic', { tid: id })
             this.$swal({
               icon: 'success',
               title: '<span style="color:#000000">ลบสำเร็จ</span>',

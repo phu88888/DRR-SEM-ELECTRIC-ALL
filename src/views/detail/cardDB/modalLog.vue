@@ -591,7 +591,7 @@ export default {
   methods: {
     getTableNBIoTLog(IMEI) {
       axios
-        .post('/popupNB-IoTLog', { imei: IMEI })
+        .post('/popupNB-IoTLog-Electic', { imei: IMEI })
         .then(response => {
           this.items = response.data
           this.totalRows = response.data.length
@@ -611,7 +611,7 @@ export default {
       this.currentPage = 1
     },
     checkLine() {
-      axios.post('/checkLine', { wid: this.$route.query.wid })
+      axios.post('/checkLine-Electic', { wid: this.$route.query.wid })
         .then(response => {
           // eslint-disable-next-line prefer-destructuring
           this.check = response.data[0]
@@ -647,7 +647,7 @@ export default {
         if (result.value) {
           this.switch.drv1_cmd = event.value
           try {
-            await axios.post('/swithSemControl', this.switch)
+            await axios.post('/swithSemControl-Electic', this.switch)
             if (event.value === true) {
               this.$swal({
                 icon: 'success',

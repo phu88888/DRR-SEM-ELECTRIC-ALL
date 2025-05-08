@@ -178,7 +178,7 @@ export default {
   methods: {
     getMarkerSem() {
       axios
-        .post('/getDiagram3P', { wid: this.$route.query.wid })
+        .post('/getDiagram3P-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.items = response.data
           this.voltP1 = this.items[0].volt
@@ -194,7 +194,7 @@ export default {
     },
     getTop5() {
       axios
-        .post('/top5-PCUDB-All')
+        .post('/top5-PCUDB-All-Electic')
         .then(response => {
           this.progress = response.data
         })

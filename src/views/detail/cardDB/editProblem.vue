@@ -141,7 +141,7 @@ export default {
     sendInfo(tid) {
       this.id = tid
       axios
-        .post('/fetchTroubleSEMControlDetail', { tid: this.id })
+        .post('/fetchTroubleSEMControlDetail-Electic', { tid: this.id })
         .then(response => {
           this.editData.name_solving = response.data[0].name_solving
           this.problem_cause = response.data[0].problem_cause
@@ -153,7 +153,7 @@ export default {
     },
     editProblem() {
       axios
-        .post('/editTroubleSEMControlDetail', this.editData)
+        .post('/editTroubleSEMControlDetail-Electic', this.editData)
         // eslint-disable-next-line no-unused-vars
         .then(response => {
           this.$swal({

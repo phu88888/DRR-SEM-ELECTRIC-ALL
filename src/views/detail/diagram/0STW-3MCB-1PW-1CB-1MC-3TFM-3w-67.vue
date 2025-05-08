@@ -365,7 +365,7 @@ export default {
   methods: {
     getCenterSem() {
       axios
-        .post('/waySEMControlDetail', { wid: this.$route.query.wid })
+        .post('/waySEMControlDetail-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.center = []
           this.waydetail = response.data[0].detail
@@ -379,7 +379,7 @@ export default {
     },
     getValueDiagram() {
       axios
-        .post('/getDiagram3P', { wid: this.$route.query.wid })
+        .post('/getDiagram3P-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.sem_type = response.data[0].firmware
           this.diagram_type = response.data[0].diagram_type

@@ -378,7 +378,7 @@ export default {
     },
     getHistory() {
       axios
-        .post('/reportProblem1Years', this.date)
+        .post('/reportProblem1Years-Electic', this.date)
         .then(response => {
           this.items = response.data
           this.totalRows = response.data.length

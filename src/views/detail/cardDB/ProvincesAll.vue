@@ -81,7 +81,7 @@ export default {
   methods: {
     getProvincesAll() {
       axios
-        .post('/count-ProvinceDB-All')
+        .post('/count-ProvinceDB-All-Electic')
         .then(response => {
           this.TotalProvinces = response.data[0].total_provinces.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
         })

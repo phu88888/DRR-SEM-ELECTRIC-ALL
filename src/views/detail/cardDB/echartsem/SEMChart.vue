@@ -234,7 +234,7 @@ export default {
   },
   methods: {
     graphVolt() {
-      axios.post('/graphVolt3P', { wid: this.$route.query.wid })
+      axios.post('/graphVolt3P-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.resetVolt()
           // eslint-disable-next-line prefer-destructuring
@@ -251,7 +251,7 @@ export default {
         })
     },
     graphAmp() {
-      axios.post('/graphAmp3P', { wid: this.$route.query.wid })
+      axios.post('/graphAmp3P-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.resetAmp()
           // eslint-disable-next-line prefer-destructuring

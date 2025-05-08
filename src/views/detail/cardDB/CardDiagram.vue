@@ -141,7 +141,7 @@ export default {
         if (result.value) {
           this.switch.drv1_cmd = event.value
           try {
-            await axios.post('/swithSemControl', this.switch)
+            await axios.post('/swithSemControl-Electic', this.switch)
             if (event.value === true) {
               this.$swal({
                 icon: 'success',
@@ -175,7 +175,7 @@ export default {
     },
     checkSwith() {
       axios
-        .post('/checkSwithSemControl', { wid: this.$route.query.wid, controller_id: 1 })
+        .post('/checkSwithSemControl-Electic', { wid: this.$route.query.wid, controller_id: 1 })
         .then(response => {
           this.switch.semid = response.data[0].id
           if (response.data[0].drv1_cmd === 'CH1:CMD01:MT01=1;') {
@@ -190,7 +190,7 @@ export default {
     },
     getCenterSem() {
       axios
-        .post('/waySEMControlDetail', { wid: this.$route.query.wid })
+        .post('/waySEMControlDetail-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.center = []
           this.waydetail = response.data[0].detail
@@ -206,7 +206,7 @@ export default {
     },
     getValueDiagram() {
       axios
-        .post('/getDiagram3P', { wid: this.$route.query.wid })
+        .post('/getDiagram3P-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.sem_type = response.data[0].firmware
         })

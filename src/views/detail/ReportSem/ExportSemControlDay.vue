@@ -192,7 +192,7 @@ export default {
   },
   methods: {
     graphLine() {
-      axios.post('/reportGraphSEMControl3PDay', this.date)
+      axios.post('/reportGraphSEMControl3PDay-Electic', this.date)
         .then(response => {
           this.xAxisData = []
           this.xAxisData = response.data
@@ -240,7 +240,7 @@ export default {
     getHistory(date1) {
       this.date = date1
       axios
-        .post('/reportSEMControl3PDay', date1)
+        .post('/reportSEMControl3PDay-Electic', date1)
         .then(response => {
           this.items = response.data
           this.totalRows = response.data.length

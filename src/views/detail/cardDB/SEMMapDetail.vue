@@ -430,7 +430,7 @@ export default {
   methods: {
     getAlertFireAlarm() {
       axios
-        .post('/checkSem1EventLog', { wid: this.$route.query.wid })
+        .post('/checkSem1EventLog-Electic', { wid: this.$route.query.wid })
         .then(response => {
           if (response.data.lenght !== 0) {
             this.ack = response.data[0].ack
@@ -466,7 +466,7 @@ export default {
     },
     closeToast() {
       axios
-        .post('/closeSem1EventLog', { wid: this.$route.query.wid, ack: 0, alert: 0 })
+        .post('/closeSem1EventLog-Electic', { wid: this.$route.query.wid, ack: 0, alert: 0 })
         // eslint-disable-next-line no-unused-vars
         .then(response => {
           this.getMarkerSem()
@@ -555,7 +555,7 @@ export default {
     // },
     getCenterSem() {
       axios
-        .post('/waySEMControlDetail', { wid: this.$route.query.wid })
+        .post('/waySEMControlDetail-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.center = []
           this.zoom = response.data[0].mapzoom
@@ -570,7 +570,7 @@ export default {
     // ตู้ไฟ
     getMarkerSem() {
       axios
-        .post('/markerSEM1Phase', { wid: this.$route.query.wid })
+        .post('/markerSEM1Phase-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.markers = response.data
         })
@@ -580,7 +580,7 @@ export default {
     },
     getMarker3Phase() {
       axios
-        .post('/getDiagram3P', { wid: this.$route.query.wid })
+        .post('/getDiagram3P-Electic', { wid: this.$route.query.wid })
         .then(response => {
           this.markers3P = response.data
           this.itemsSemBox1.splice(0)
@@ -592,7 +592,7 @@ export default {
     },
     zoomUpdated(value) {
       setTimeout(() => axios
-        .post('/updateMapZoom', {
+        .post('/updateMapZoom-Electic', {
           mapzoom: value, wid: this.$route.query.wid, type_name: this.type_name,
         })
         // eslint-disable-next-line no-unused-vars

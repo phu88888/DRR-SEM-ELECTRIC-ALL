@@ -109,7 +109,7 @@ export default {
     },
     addProblem() {
       axios
-        .post('/addTroubleSEMControlDetail', this.addData)
+        .post('/addTroubleSEMControlDetail-Electic', this.addData)
         // eslint-disable-next-line no-unused-vars
         .then(response => {
           this.$swal({
