@@ -168,11 +168,11 @@ export default {
     }, 300000)
   },
   mounted() {
-    this.getTop5()
+    // this.getTop5()
     setTimeout(() => {
     }, 1000)
     this.interval = setInterval(() => {
-      this.getTop5()
+      // this.getTop5()
     }, 300000)
   },
   methods: {
@@ -192,16 +192,16 @@ export default {
           console.log(error)
         })
     },
-    getTop5() {
-      axios
-        .post('/top5-PCUDB-All-Electic')
-        .then(response => {
-          this.progress = response.data
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
+    // getTop5() {
+    //   axios
+    //     .post('/top5-PCUDB-All-Electic')
+    //     .then(response => {
+    //       this.progress = response.data
+    //     })
+    //     .catch(error => {
+    //       console.log(error)
+    //     })
+    // },
     getProgressClass(index) {
       const colors = ['progress-red', 'progress-blue', 'progress-green', 'progress-yellow', 'progress-purple']
       return colors[index % colors.length]
