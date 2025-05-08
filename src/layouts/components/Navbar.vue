@@ -24,7 +24,7 @@
       <div class="logo-container">
         <b-img
           style="height: 50px;"
-          src="@/assets/images/logo/logo2.png"
+          src="@/assets/images/logo/logosem-navbar.png"
         />
       </div>
       <!-- <dark-toggler class="d-none d-lg-block" /> -->
