@@ -15,7 +15,7 @@
 //  ================================================================================================
 
 //Body
-$theme-dark-body-bg: rgb(120, 196, 219) !default;
+$theme-dark-body-bg: rgb(27, 44, 49) !default;
 $theme-dark-body-color: #ffffff !default;
 $theme-dark-border-color: #3b4253 !default;
 $theme-dark-custom-control-border-color: #44405e !default;
@@ -30,7 +30,7 @@ $theme-dark-card-bg: rgba(0, 0, 0, 1.0) !default;
 $theme-dark-box-shadow: 0 4px 24px 0 rgba($black, 0.24);
 
 //Input
-$theme-dark-input-bg: #ffffff !default;
+$theme-dark-input-bg: #141519 !default;
 $theme-dark-input-placeholder-color: #676d7d !default;
 $theme-dark-input-border-color: #404656 !default;
 $theme-dark-input-disabled-bg: #24233a !default;
@@ -42,12 +42,12 @@ $theme-dark-switch-bg-disabled: #1b2337;
 
 //Table
 $theme-dark-table-bg: rgba(255, 123, 255, 0.0) !default;
-$theme-dark-table-header-bg: #daf8ff !default;
+$theme-dark-table-header-bg: #002027 !default;
 $theme-dark-table-row-bg: #18242E !default;
 $theme-dark-table-hover-bg: #9adfff !default;
 $theme-dark-table-striped-bg: #9adfff !default;
 
 $theme-dark-modal-header-bg: #161d31 !default;
-$theme-dark-pagination-bg: #9adfff !default;
+$theme-dark-pagination-bg: #e2f6ff !default;
 $theme-dark-chart-bg: #384056 !default;
 $theme-dark-widget-bg: #384056 !default;

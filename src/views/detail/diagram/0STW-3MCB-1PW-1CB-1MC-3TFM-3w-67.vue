@@ -74,7 +74,7 @@
     <l-marker
       v-if="(items.c_main_breaker === '0' && items.c_main_breaker_phase2 === '0' && items.c_main_breaker_phase3 === '0')
         || (items.c_sub_breaker1 === '0' && items.c_sub_breaker1_phase2 === '0' && items.c_sub_breaker1_phase3 === '0')"
-      :lat-lng="[-266, -610]"
+      :lat-lng="[-266, 44]"
       :icon="iconCB1F"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
@@ -93,7 +93,7 @@
     </l-marker>
     <l-marker
       v-else
-      :lat-lng="[-266, -610]"
+      :lat-lng="[-266, 44]"
       :icon="iconCB1NF"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
