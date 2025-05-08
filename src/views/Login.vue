@@ -224,6 +224,7 @@ export default {
           username: this.username,
           password: this.password,
         })
+
         this.$swal.fire({
           position: 'center',
           icon: 'success',
@@ -231,7 +232,14 @@ export default {
           showConfirmButton: false,
           timer: 1500,
         })
-        setTimeout(() => this.$router.push('/Diagram'), 1500)
+
+        setTimeout(() => {
+          if (this.username === 'stn-sm-kk' && this.password === 'stn-sm-kk@dmin') {
+            this.$router.push('/diagram?wid=2112&type=iot4g-67')
+          } else if (this.username === 'trg-sm-ss' && this.password === 'trg-sm-ss@dmin') {
+            this.$router.push('/diagram?wid=2113&type=iot4g-67')
+          }
+        }, 1500)
       } catch (error) {
         this.$swal.fire({
           position: 'center',
