@@ -22,8 +22,8 @@
           <li class="nav-item mr-auto">
             <b-link
               class="navbar-brand"
-              to="/"
             >
+              <!-- to="/" -->
               <span class="brand-logo">
                 <b-img
                   :src="appLogoImage"
@@ -31,7 +31,7 @@
                 />
               </span>
               <span style="font-size: 16px; margin-left: 22px; color: #CCAF61; text-shadow: 1px 1px 2px #E4AD18; font-weight: 500;">
-                Vehicle Count All
+                SEM Lighting
               </span>
             </b-link>
           </li>

@@ -188,13 +188,13 @@
           >
             <feather-icon
               style="height: 35px; color: #003885;"
-              icon="FileIcon"
+              icon="HomeIcon"
               size="23"
             />
             <label
               style="padding: 5px; font-size: 15px; color: #000;"
             >
-              Diagram
+              Dashboard
             </label>
           </b-button>
         </b-navbar-nav>
