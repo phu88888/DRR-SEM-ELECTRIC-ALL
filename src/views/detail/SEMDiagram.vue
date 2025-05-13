@@ -83,7 +83,7 @@ import CardMap from '@/views/detail/cardDB/CardDiagram.vue'
 import L1 from '@/views/detail/cardDB/L1.vue'
 import L2 from '@/views/detail/cardDB/L2.vue'
 import L3 from '@/views/detail/cardDB/L3.vue'
-import EchartSem from '@/views/detail/cardDB/echartsem/SEMChart.vue'
+import EchartSem from '@/views/detail/cardDB/echartsem/SEMChartMake.vue'
 import SEMMap from '@/views/detail/cardDB/SEMMapDetail.vue'
 import SEMTable from '@/views/detail/cardDB/SEMLog.vue'
 

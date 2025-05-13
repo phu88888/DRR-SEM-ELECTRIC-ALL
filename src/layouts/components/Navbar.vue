@@ -185,6 +185,7 @@
             pill
             variant="flat-primary"
             style="padding-bottom: 8px;"
+            :to="`/diagram?wid=${this.$route.query.wid}&type=${this.$route.query.type}`"
           >
             <feather-icon
               style="height: 35px; color: #003885;"

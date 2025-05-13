@@ -117,16 +117,20 @@ export default {
     this.interval = setInterval(() => {
       this.getValueDiagram()
       this.getCenterSem()
-      this.checkSwith()
+      // this.checkSwith()
     }, 10000)
   },
   mounted() {
     this.wid = this.$route.query.wid
   },
   methods: {
+    // แก้ไขฟังก์ชัน onChangeActive เพื่อให้แสดงสถานะที่ถูกต้อง
     onChangeActive(event) {
+      // เก็บสถานะที่ต้องการเปลี่ยน
+      const targetState = event.value
+
       this.$swal({
-        title: '<span style="color:#000000">ต้องการปิดหรือเปิดตู้ไฟหรือไม่</span>',
+        title: `<span style="color:#000000">ต้องการ${targetState ? 'เปิด' : 'ปิด'}ตู้ไฟหรือไม่</span>`,
         icon: 'warning',
         showCancelButton: true,
         cancelButtonText: 'ยกเลิก',
@@ -139,55 +143,151 @@ export default {
         buttonsStyling: false,
       }).then(async result => {
         if (result.value) {
-          this.switch.drv1_cmd = event.value
           try {
-            await axios.post('/swithSemControl-Electic', this.switch)
-            if (event.value === true) {
-              this.$swal({
-                icon: 'success',
-                title: '<span style="color:#000000">เปิดเรียบร้อยแล้ว</span>',
-                showConfirmButton: false,
-                timer: 1000,
-              })
-            } else {
-              this.$swal({
-                icon: 'success',
-                title: '<span style="color:#000000">ปิดเรียบร้อยแล้ว</span>',
-                showConfirmButton: false,
-                timer: 1000,
-              })
+            // จัดเตรียมข้อมูล
+            const requestData = {
+              semid: this.switch.semid,
+              wid: this.$route.query.wid,
+              controller_id: 1,
+              equipment: this.equipment,
+              drv1_cmd: targetState,
             }
-            this.getValueDiagram()
-            this.checkSwith()
+
+            console.log('ส่งข้อมูลไป API:', requestData)
+
+            // ส่งคำขอไป API
+            const response = await axios.post('/swithSemControl-Electic', requestData)
+            console.error('111:', response)
+            // สำคัญ: บังคับให้แสดงสถานะตามที่เพิ่งส่งไป API
+            this.$nextTick(() => {
+              // ใช้ $nextTick เพื่อให้แน่ใจว่า Vue ได้อัพเดท DOM หลังจากการเปลี่ยนค่า
+              this.switch.drv1_cmd = targetState
+            })
+
+            // แสดงข้อความสำเร็จ
+            this.$swal({
+              icon: 'success',
+              title: `<span style="color:#000000">${targetState ? 'เปิด' : 'ปิด'}เรียบร้อยแล้ว</span>`,
+              showConfirmButton: false,
+              timer: 1000,
+            })
+
+            // รอให้ UI อัพเดทก่อนดึงข้อมูลใหม่
+            setTimeout(() => {
+              this.getValueDiagram()
+
+              // ไม่ดึงข้อมูลสถานะใหม่ทันที เพื่อให้ UI แสดงตามที่ผู้ใช้เพิ่งเปลี่ยน
+              // this.checkSwith();
+            }, 1000)
           } catch (error) {
+            console.error('Error:', error)
+
             this.$swal({
               title: 'Error!',
-              text: ' กดเพื่อดำเนินการต่อ!',
+              text: 'ไม่สามารถดำเนินการได้ กรุณาลองใหม่อีกครั้ง',
               icon: 'error',
               customClass: {
                 confirmButton: 'btn btn-primary',
               },
               buttonsStyling: false,
             })
+
+            // กรณีเกิด error ให้กลับไปค่าเดิม
+            this.$nextTick(() => {
+              this.switch.drv1_cmd = !targetState
+            })
           }
+        } else {
+          // กรณีกดยกเลิก ให้กลับไปใช้ค่าเดิม
+          this.$nextTick(() => {
+            this.switch.drv1_cmd = !targetState
+          })
         }
       })
     },
+    // onChangeActive(event) {
+    //   this.$swal({
+    //     title: '<span style="color:#000000">ต้องการปิดหรือเปิดตู้ไฟหรือไม่</span>',
+    //     icon: 'warning',
+    //     showCancelButton: true,
+    //     cancelButtonText: 'ยกเลิก',
+    //     confirmButtonText: 'ตกลง',
+    //     reverseButtons: true,
+    //     customClass: {
+    //       confirmButton: 'btn btn-primary ml-1',
+    //       cancelButton: 'btn btn-danger',
+    //     },
+    //     buttonsStyling: false,
+    //   }).then(async result => {
+    //     if (result.value) {
+    //       this.switch.drv1_cmd = event.value
+    //       try {
+    //         await axios.post('/swithSemControl-Electic', this.switch)
+    //         if (event.value === true) {
+    //           this.$swal({
+    //             icon: 'success',
+    //             title: '<span style="color:#000000">เปิดเรียบร้อยแล้ว</span>',
+    //             showConfirmButton: false,
+    //             timer: 1000,
+    //           })
+    //         } else {
+    //           this.$swal({
+    //             icon: 'success',
+    //             title: '<span style="color:#000000">ปิดเรียบร้อยแล้ว</span>',
+    //             showConfirmButton: false,
+    //             timer: 1000,
+    //           })
+    //         }
+    //         this.getValueDiagram()
+    //         this.checkSwith()
+    //       } catch (error) {
+    //         this.$swal({
+    //           title: 'Error!',
+    //           text: ' กดเพื่อดำเนินการต่อ!',
+    //           icon: 'error',
+    //           customClass: {
+    //             confirmButton: 'btn btn-primary',
+    //           },
+    //           buttonsStyling: false,
+    //         })
+    //       }
+    //     }
+    //   })
+    // },
     checkSwith() {
-      axios
+      return axios
         .post('/checkSwithSemControl-Electic', { wid: this.$route.query.wid, controller_id: 1 })
         .then(response => {
-          this.switch.semid = response.data[0].id
-          if (response.data[0].drv1_cmd === 'CH1:CMD01:MT01=1;') {
-            this.switch.drv1_cmd = true
-          } else {
-            this.switch.drv1_cmd = false
+          if (!response.data || response.data.length === 0) {
+            console.warn('ไม่พบข้อมูลจาก API checkSwithSemControl')
+            return
           }
+
+          // อัพเดท semid เท่านั้น
+          this.switch.semid = response.data[0].id || ''
+
+          // หมายเหตุ: ไม่อัพเดทค่า drv1_cmd เพื่อป้องกันการเด้งกลับ
+          console.log('ได้รับข้อมูลจาก API (แต่ไม่อัพเดท UI):', response.data[0])
         })
         .catch(error => {
-          console.log(error)
+          console.error('เกิดข้อผิดพลาดใน checkSwith:', error)
         })
     },
+    // checkSwith() {
+    //   axios
+    //     .post('/checkSwithSemControl-Electic', { wid: this.$route.query.wid, controller_id: 1 })
+    //     .then(response => {
+    //       this.switch.semid = response.data[0].id
+    //       if (response.data[0].drv1_cmd === 'CH1:CMD01:MT01=1;') {
+    //         this.switch.drv1_cmd = true
+    //       } else {
+    //         this.switch.drv1_cmd = false
+    //       }
+    //     })
+    //     .catch(error => {
+    //       console.log(error)
+    //     })
+    // },
     getCenterSem() {
       axios
         .post('/waySEMControlDetail-Electic', { wid: this.$route.query.wid })
