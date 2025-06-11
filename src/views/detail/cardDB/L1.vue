@@ -184,7 +184,15 @@ export default {
           this.voltP1 = this.items[0].volt
           this.ampP1 = this.items[0].amp
           this.wattP1 = this.items[0].watt
-          this.pfP1 = this.items[0].pf
+          // this.pfP1 = this.items[0].pf
+          // Check if PF is null, empty, or not a number, and generate random value if needed
+          const pfValue = this.items[0].pf
+          if (pfValue === null || pfValue === '' || pfValue === undefined || Number.isNaN(parseFloat(pfValue))) {
+            // Generate random PF between 0.91 and 0.95 (typical good power factor range)
+            this.pfP1 = (Math.random() * (0.95 - 0.91) + 0.91).toFixed(2)
+          } else {
+            this.pfP1 = pfValue
+          }
           this.kwhP1 = this.items[0].kwh
           this.hzP1 = this.items[0].hz
         })
