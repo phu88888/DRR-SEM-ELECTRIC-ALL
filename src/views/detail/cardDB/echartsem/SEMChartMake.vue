@@ -1,14 +1,14 @@
 <template>
   <div>
     <!-- แสดงค่า wid และ type สำหรับการดีบัก -->
-    <div
+    <!-- <div
       v-if="isDebugging"
       class="debug-info"
     >
       <p style="color: white; margin: 10px 0;">
         wid: {{ currentWid }}, type: {{ currentType }}
       </p>
-    </div>
+    </div> -->
 
     <b-row>
       <b-col
@@ -22,24 +22,14 @@
             cols="12"
             class="d-flex align-items-center justify-content-center mb-1"
           >
-            <div style="margin-right: 1rem; display: flex; align-items: center;">
-              <div style="width: 15px; height: 15px; background-color: #FF6100; border-radius: 3px; margin-right: 5px;" />
-              <span style="color: white; font-size: 14px;">Phase 1</span>
-            </div>
-            <div style="margin-right: 1rem; display: flex; align-items: center;">
-              <div style="width: 15px; height: 15px; background-color: #00FF27; border-radius: 3px; margin-right: 5px;" />
-              <span style="color: white; font-size: 14px;">Phase 2</span>
-            </div>
-            <div style="margin-right: 1rem; display: flex; align-items: center;">
-              <div style="width: 15px; height: 15px; background-color: #FFFF00; border-radius: 3px; margin-right: 5px;" />
-              <span style="color: white; font-size: 14px;">Phase 3</span>
-            </div>
+            <ColorScale1 style="margin-right: 3rem;" />
             <span
               class="chart-text"
               style="color:#ffffff;"
             >
               กราฟแสดงแรงดันไฟฟ้าภายในตู้ควบคุม 24 ชั่วโมง (Volt)
             </span>
+            <ColorScale2 style="margin-left: 3rem;" />
           </b-col>
         </b-row>
         <b-card
@@ -65,24 +55,14 @@
             cols="12"
             class="d-flex align-items-center justify-content-center mb-1"
           >
-            <div style="margin-right: 1rem; display: flex; align-items: center;">
-              <div style="width: 15px; height: 15px; background-color: #FF6100; border-radius: 3px; margin-right: 5px;" />
-              <span style="color: white; font-size: 14px;">Phase 1</span>
-            </div>
-            <div style="margin-right: 1rem; display: flex; align-items: center;">
-              <div style="width: 15px; height: 15px; background-color: #00FF27; border-radius: 3px; margin-right: 5px;" />
-              <span style="color: white; font-size: 14px;">Phase 2</span>
-            </div>
-            <div style="margin-right: 1rem; display: flex; align-items: center;">
-              <div style="width: 15px; height: 15px; background-color: #FFFF00; border-radius: 3px; margin-right: 5px;" />
-              <span style="color: white; font-size: 14px;">Phase 3</span>
-            </div>
+            <ColorScale1 style="margin-right: 3rem;" />
             <span
               class="chart-text"
               style="color:#ffffff;"
             >
               กราฟแสดงกระแสไฟฟ้าภายในตู้ควบคุม 24 ชั่วโมง (Amp)
             </span>
+            <ColorScale2 style="margin-left: 3rem;" />
           </b-col>
         </b-row>
         <b-card
@@ -107,12 +87,18 @@ import {
 } from 'bootstrap-vue'
 import AppEchartLine from './AppEchartLine.vue'
 
+import ColorScale1 from '@/views/detail/cardDB/ColorScale1.vue'
+import ColorScale2 from '@/views/detail/cardDB/ColorScale2.vue'
+
 export default {
   components: {
     BRow,
     BCol,
     BCard,
     AppEchartLine,
+
+    ColorScale1,
+    ColorScale2,
   },
   data() {
     return {

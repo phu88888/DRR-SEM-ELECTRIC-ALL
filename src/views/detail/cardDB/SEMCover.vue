@@ -2,7 +2,7 @@
   <div>
     <b-row>
       <b-col
-        cols="9"
+        cols="6"
         class="mb-1"
       >
         <b-link
@@ -68,6 +68,23 @@
           </b-dropdown>
         </div>
       </b-col>
+      <b-col
+        cols="3"
+        class="text-sm-right d-flex align-items-center justify-content-end"
+      >
+        <div class="mr-2">
+          <span style="color: #00FFFF; font-size: 14px;">เลือกสายทาง:</span>
+        </div>
+        <div style="min-width: 150px;">
+          <b-form-select
+            v-model="selectedWay"
+            :options="wayOptions"
+            size="sm"
+            style="background-color: #2c3e50; color: #00FF80; border: 1px solid #00FF80; width: 300px;"
+            @change="onWayChange"
+          />
+        </div>
+      </b-col>
     </b-row>
     <modalLog
       ref="Log"
@@ -78,7 +95,8 @@
 <script>
 /* eslint-disable global-require */
 import {
-  BRow, BCol, BLink, BDropdown, BDropdownItem, BDropdownDivider,
+  BRow, BCol, BLink, BDropdown, BDropdownItem, BDropdownDivider, BFormSelect,
+
   // BButton,
 } from 'bootstrap-vue'
 import axios from '@axios'
@@ -96,6 +114,7 @@ export default {
     BDropdown,
     BDropdownItem,
     BDropdownDivider,
+    BFormSelect,
     modalLog,
     // BButton,
     // ModalStatusLighting,
@@ -106,91 +125,30 @@ export default {
   data() {
     return {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      zoom: 18,
-      center: [0, 0],
       waydetail: '',
       deptid: '',
-      lat: '',
-      lng: '',
       type_name: '',
+      id: '',
       items: [],
-      itemsSemC: [],
-      fieldsSemC: [
-        { key: 'lastseen', label: 'อัพเดท:', class: 'text-center' },
-        { key: 'devconnect', label: 'สถานะ:', class: 'text-center' },
-        { key: 'id', label: '', class: 'text-center' },
-      ],
-      StatusSemC: [{
-        ปกติ: 'ปกติ', ติดต่อไม่ได้: 'ติดต่อไม่ได้',
-      },
-      {
-        ปกติ: 'success', ติดต่อไม่ได้: 'danger',
-      }],
 
-      itemsSemD: [],
-      fieldsSemD: [
-        {
-          key: 'pole', label: 'เสาที่:', class: 'text-center',
-        },
-        {
-          key: 'phase1Volt', label: 'Volt Phase1:', class: 'text-center', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'phase2Volt', label: 'Phase2:', class: 'text-center', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'phase3Volt', label: 'Phase3:', class: 'text-center', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'phase1Amp', label: 'AmpPhase1:', class: 'text-center', tdClass: 'bg-light-info',
-        },
-        {
-          key: 'phase2Amp', label: 'Phase2:', class: 'text-center', tdClass: 'bg-light-info',
-        },
-        {
-          key: 'phase3Amp', label: 'Phase3:', class: 'text-center', tdClass: 'bg-light-info',
-        },
-        { key: 'devstatus', label: 'สถานะ:', class: 'text-center' },
-        { key: 'lastseen', label: 'อัพเดท:', class: 'text-center' },
+      selectedWay: null,
+      wayOptions: [
+        { value: null, text: '-- เลือกสายทาง --' },
+        { value: '2244', text: 'สายทาง 2244' },
+        { value: '2112', text: 'สายทาง 2112' },
       ],
-      StatusSemD: [{
-        ปกติ: 'ปกติ', ดับ: 'ดับ',
-      },
-      {
-        ปกติ: 'success', ดับ: 'danger',
-      }],
 
-      itemsSemBox1: [],
-      itemsSemBox2: [],
-      itemsSemBox3: [],
-      fieldsSemBox: [
-        {
-          key: 'watt', label: 'Watt:', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'kwh', label: 'Kwh:', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'hz', label: 'Hz:', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'pf', label: 'Pf:', tdClass: 'bg-light-warning',
-        },
-      ],
-      StatusSemBox: [{
-        ปกติ: 'ปกติ', ติดต่อไม่ได้: 'ติดต่อไม่ได้',
-      },
-      {
-        ปกติ: 'success', ติดต่อไม่ได้: 'danger',
-      }],
-      visible: [],
       ack: '',
+      event: '',
     }
   },
   created() {
     this.getCenterSem()
     this.getAlertFireAlarm()
     this.getValueDiagram()
+
+    // ตั้งค่า selectedWay จาก query parameter ปัจจุบัน
+    this.selectedWay = this.$route.query.wid || null
   },
   mounted() {
     this.interval = setInterval(() => {
@@ -198,6 +156,23 @@ export default {
     }, 10000)
   },
   methods: {
+    onWayChange(value) {
+      if (value) {
+        // อัพเดท URL และ query parameters
+        const newQuery = {
+          ...this.$route.query,
+          wid: value,
+        }
+        this.$router.push({
+          name: this.$route.name,
+          query: newQuery,
+        })
+
+        // โหลดข้อมุลใหม่สำหรับสายทางที่เลือก
+        this.getCenterSem()
+        this.getValueDiagram()
+      }
+    },
     getAlertFireAlarm() {
       axios
         .post('/checkSemEventLog-Electic')
@@ -220,13 +195,10 @@ export default {
       axios
         .post('/waySEMControlDetail-Electic', { wid: this.$route.query.wid })
         .then(response => {
-          this.center = []
-          this.zoom = response.data[0].mapzoom
-          this.center.push(response.data[0].latitude)
-          this.center.push(response.data[0].longitude)
           this.waydetail = response.data[0].detail
           this.deptid = response.data[0].deptid
           this.type_name = response.data[0].type_name
+          this.id = response.data[0].id
         })
         .catch(error => {
           console.log(error)
@@ -245,6 +217,7 @@ export default {
           console.log(error)
         })
     },
+
   },
 }
 </script>
