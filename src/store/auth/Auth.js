@@ -6,15 +6,18 @@ export default {
     status: '',
     user: {},
     controller: 1,
+    deptid: null,
   },
   getters: {
     status: state => state.user.status,
     controller: state => state.controller,
+    deptid: state => state.deptid,
   },
   mutations: {
     auth_success(state, user) {
       state.user = user
       state.status = true
+      state.deptid = user.deptid || null
     },
     logout(state) {
       state.status = false

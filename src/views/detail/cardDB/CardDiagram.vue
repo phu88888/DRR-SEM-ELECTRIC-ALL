@@ -94,6 +94,7 @@ export default {
       deptid: '',
       markers: [],
       items: [],
+      center: [], // เพิ่ม center เพื่อป้องกัน undefined
       switch: {
         semid: '',
         controller_id: 1,
@@ -113,9 +114,7 @@ export default {
   created() {
     this.getCenterSem()
     this.checkSwith()
-    this.getValueDiagram()
     this.interval = setInterval(() => {
-      this.getValueDiagram()
       this.getCenterSem()
       // this.checkSwith()
     }, 10000)
@@ -174,10 +173,7 @@ export default {
 
             // รอให้ UI อัพเดทก่อนดึงข้อมูลใหม่
             setTimeout(() => {
-              this.getValueDiagram()
-
-              // ไม่ดึงข้อมูลสถานะใหม่ทันที เพื่อให้ UI แสดงตามที่ผู้ใช้เพิ่งเปลี่ยน
-              // this.checkSwith();
+              this.getCenterSem()
             }, 1000)
           } catch (error) {
             console.error('Error:', error)
@@ -289,31 +285,45 @@ export default {
     //     })
     // },
     getCenterSem() {
+      // ตรวจสอบว่ามี this.switch หรือไม่ ถ้าไม่มีให้สร้างขึ้นมา
+      if (!this.switch) {
+        this.switch = {
+          semid: '',
+          controller_id: 1,
+          drv1_cmd: '',
+        }
+      }
+
       axios
         .post('/waySEMControlDetail-Electic', { wid: this.$route.query.wid })
         .then(response => {
-          this.center = []
-          this.waydetail = response.data[0].detail
-          this.deptid = response.data[0].deptid
-          this.type_name = response.data[0].type_name
-          this.switch.semid = response.data[0].id
-          this.diagram_type = response.data[0].diagram_type
-          this.equipment = response.data[0].equipment
+          // ตรวจสอบว่ามีข้อมูลจาก API หรือไม่
+          if (response.data && response.data.length > 0) {
+            // กำหนดค่า center เป็น array ว่างก่อน
+            this.center = []
+
+            // กำหนดค่าต่างๆ จากข้อมูลที่ได้จาก API
+            this.waydetail = response.data[0].detail
+            this.deptid = response.data[0].deptid
+            this.type_name = response.data[0].type_name
+
+            // ตรวจสอบว่ามี this.switch หรือไม่ก่อนกำหนดค่า
+            if (this.switch) {
+              this.switch.semid = response.data[0].id
+            }
+
+            this.diagram_type = response.data[0].diagram_type
+            this.equipment = response.data[0].equipment
+            this.sem_type = response.data[0].sem_type
+          } else {
+            console.warn('ไม่พบข้อมูลจาก API waySEMControlDetail-Electic')
+          }
         })
         .catch(error => {
-          console.log(error)
+          console.error('เกิดข้อผิดพลาดใน getCenterSem:', error)
         })
     },
-    getValueDiagram() {
-      axios
-        .post('/getDiagram3P-Electic', { wid: this.$route.query.wid })
-        .then(response => {
-          this.sem_type = response.data[0].firmware
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
+    // ลบฟังก์ชัน getValueDiagram เนื่องจากได้ข้อมูลจาก getCenterSem แล้ว
   },
 }
 </script>

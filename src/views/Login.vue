@@ -170,6 +170,7 @@ import {
 } from 'bootstrap-vue'
 import { required, email } from '@validations'
 import { togglePasswordVisibility } from '@core/mixins/ui/forms'
+import axios from '@axios'
 import store from '@/store/index'
 
 export default {
@@ -233,11 +234,42 @@ export default {
           timer: 1500,
         })
 
-        setTimeout(() => {
-          if (this.username === 'stn-sm-kk' && this.password === 'stn-sm-kk@dmin') {
-            this.$router.push('/diagram?wid=2112&type=iot4g-67')
-          } else if (this.username === 'trg-sm-ss' && this.password === 'trg-sm-ss@dmin') {
-            this.$router.push('/diagram?wid=2113&type=iot4g-67')
+        // ดึงข้อมูล deptid จาก localStorage หรือ store
+        const userData = JSON.parse(localStorage.getItem('userData'))
+        const deptid = userData.deptid || this.$store.state.auth.deptid
+
+        // เรียกใช้ API /GetSEMWayData-Electic ด้วย deptid
+        setTimeout(async () => {
+          try {
+            const response = await axios.post('/GetSEMWayData-Electic', { deptid })
+
+            if (response.data && response.data.length > 0) {
+              // นำ wid แรกสุดที่ได้มาใช้แทนค่า wid ที่ fix ไว้
+              const firstItem = response.data[0]
+              const { wid } = firstItem
+              const equipment = firstItem.equipment || 'iot4g-67'
+
+              this.$router.push(`/diagram?wid=${wid}&type=${equipment}`)
+            } else {
+              // กรณีไม่มีข้อมูล ให้แสดงข้อความแจ้งเตือน
+              this.$swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'ไม่พบข้อมูล',
+                text: 'ไม่พบข้อมูลในระบบ กรุณาติดต่อผู้ดูแลระบบ',
+                showConfirmButton: true,
+              })
+            }
+          } catch (apiError) {
+            console.error('Error fetching SEM way data:', apiError)
+            // กรณีเกิด error ให้แสดงข้อความแจ้งเตือน
+            this.$swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: 'เกิดข้อผิดพลาด',
+              text: 'ไม่สามารถเชื่อมต่อกับระบบได้ กรุณาลองใหม่อีกครั้งหรือติดต่อผู้ดูแลระบบ',
+              showConfirmButton: true,
+            })
           }
         }, 1500)
       } catch (error) {

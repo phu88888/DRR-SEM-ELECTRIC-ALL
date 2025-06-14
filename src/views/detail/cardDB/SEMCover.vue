@@ -134,8 +134,6 @@ export default {
       selectedWay: null,
       wayOptions: [
         { value: null, text: '-- เลือกสายทาง --' },
-        { value: '2244', text: 'สายทาง 2244' },
-        { value: '2112', text: 'สายทาง 2112' },
       ],
 
       ack: '',
@@ -143,6 +141,9 @@ export default {
     }
   },
   created() {
+    // ดึงข้อมูลสายทางจาก API ก่อน
+    this.fetchWayData()
+
     this.getCenterSem()
     this.getAlertFireAlarm()
     this.getValueDiagram()
@@ -156,21 +157,110 @@ export default {
     }, 10000)
   },
   methods: {
+    fetchWayData() {
+      try {
+        // ดึง deptid จาก localStorage
+        const userData = JSON.parse(localStorage.getItem('userData'))
+        const deptid = userData ? userData.deptid : null
+
+        if (deptid) {
+          // เรียก API เพื่อดึงข้อมูลสายทางล่าสุด
+          axios.post('/GetSEMWayData-Electic', { deptid })
+            .then(response => {
+              if (response.data && Array.isArray(response.data) && response.data.length > 0) {
+                // บันทึกข้อมูลลงใน localStorage
+                localStorage.setItem('wayData', JSON.stringify(response.data))
+
+                // อัพเดท dropdown options
+                this.updateWayOptions(response.data)
+              } else {
+                // ถ้าไม่มีข้อมูลจาก API ให้ใช้ข้อมูลจาก localStorage
+                this.loadWayDataFromStorage()
+              }
+            })
+            .catch(error => {
+              console.error('Error fetching way data from API:', error)
+              // ถ้าเรียก API ไม่สำเร็จ ให้ใช้ข้อมูลจาก localStorage
+              this.loadWayDataFromStorage()
+            })
+        } else {
+          // ถ้าไม่มี deptid ให้ใช้ข้อมูลจาก localStorage
+          this.loadWayDataFromStorage()
+        }
+      } catch (error) {
+        console.error('Error in fetchWayData:', error)
+        this.loadWayDataFromStorage()
+      }
+    },
+
+    updateWayOptions(wayData) {
+      if (Array.isArray(wayData) && wayData.length > 0) {
+        // สร้าง options สำหรับ dropdown
+        this.wayOptions = [
+          { value: null, text: '-- เลือกสายทาง --' },
+          ...wayData.map(way => ({
+            value: way.wid.toString(),
+            text: way.detail,
+            equipment: way.equipment,
+          })),
+        ]
+
+        // ถ้ายังไม่มี wid ที่เลือกในปัจจุบัน ให้เลือกรายการแรก
+        if (!this.selectedWay && wayData.length > 0) {
+          this.selectedWay = wayData[0].wid.toString()
+          // อัพเดท URL ด้วย wid และ equipment ของรายการแรก
+          this.$router.push({
+            query: {
+              ...this.$route.query,
+              wid: this.selectedWay,
+              type: wayData[0].equipment,
+            },
+          })
+        }
+      }
+    },
+
+    loadWayDataFromStorage() {
+      try {
+        // ดึงข้อมูลสายทางจาก localStorage
+        const wayData = localStorage.getItem('wayData')
+
+        if (wayData) {
+          const parsedWayData = JSON.parse(wayData)
+
+          // อัพเดท dropdown options
+          this.updateWayOptions(parsedWayData)
+        }
+      } catch (error) {
+        console.error('Error loading way data from localStorage:', error)
+      }
+    },
     onWayChange(value) {
       if (value) {
-        // อัพเดท URL และ query parameters
-        const newQuery = {
-          ...this.$route.query,
-          wid: value,
-        }
-        this.$router.push({
-          name: this.$route.name,
-          query: newQuery,
-        })
+        try {
+          // ค้นหา equipment ของสายทางที่เลือก
+          const wayData = JSON.parse(localStorage.getItem('wayData')) || []
+          const selectedWayData = wayData.find(way => way.wid.toString() === value.toString())
+          const equipment = selectedWayData ? selectedWayData.equipment : this.$route.query.type
 
-        // โหลดข้อมุลใหม่สำหรับสายทางที่เลือก
-        this.getCenterSem()
-        this.getValueDiagram()
+          // อัพเดท URL และ query parameters
+          const newQuery = {
+            ...this.$route.query,
+            wid: value,
+            type: equipment,
+          }
+
+          this.$router.push({
+            name: this.$route.name,
+            query: newQuery,
+          })
+
+          // โหลดข้อมูลใหม่สำหรับสายทางที่เลือก
+          this.getCenterSem()
+          this.getValueDiagram()
+        } catch (error) {
+          console.error('Error in onWayChange:', error)
+        }
       }
     },
     getAlertFireAlarm() {

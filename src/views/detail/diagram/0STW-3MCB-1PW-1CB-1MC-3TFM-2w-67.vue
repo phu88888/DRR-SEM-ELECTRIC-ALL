@@ -220,6 +220,13 @@ export default {
       minZoom4: -1,
       deptid: '',
       items: [],
+      center: [], // เพิ่ม center เพื่อป้องกัน undefined
+      switch: { // เพิ่ม switch เพื่อป้องกัน TypeError
+        semid: '',
+        controller_id: 1,
+        drv1_cmd: '',
+      },
+      type_name: '', // เพิ่ม type_name เพื่อป้องกัน undefined
 
       // TFM
       iconTFMN: icon({
@@ -338,17 +345,38 @@ export default {
   },
   methods: {
     getCenterSem() {
+      // ตรวจสอบว่ามี this.switch หรือไม่ ถ้าไม่มีให้สร้างขึ้นมา
+      if (!this.switch) {
+        this.switch = {
+          semid: '',
+          controller_id: 1,
+          drv1_cmd: '',
+        }
+      }
+
       axios
         .post('/waySEMControlDetail-Electic', { wid: this.$route.query.wid })
         .then(response => {
-          this.center = []
-          this.waydetail = response.data[0].detail
-          this.deptid = response.data[0].deptid
-          this.type_name = response.data[0].type_name
-          this.switch.semid = response.data[0].id
+          // ตรวจสอบว่ามีข้อมูลจาก API หรือไม่
+          if (response.data && response.data.length > 0) {
+            // กำหนดค่า center เป็น array ว่างก่อน
+            this.center = []
+
+            // กำหนดค่าต่างๆ จากข้อมูลที่ได้จาก API
+            this.waydetail = response.data[0].detail
+            this.deptid = response.data[0].deptid
+            this.type_name = response.data[0].type_name
+
+            // ตรวจสอบว่ามี this.switch หรือไม่ก่อนกำหนดค่า
+            if (this.switch) {
+              this.switch.semid = response.data[0].id
+            }
+          } else {
+            console.warn('ไม่พบข้อมูลจาก API waySEMControlDetail-Electic')
+          }
         })
         .catch(error => {
-          console.log(error)
+          console.error('เกิดข้อผิดพลาดใน getCenterSem:', error)
         })
     },
     getValueDiagram() {
