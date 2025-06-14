@@ -9,24 +9,24 @@
                touchZoom: false, tap: false, dragging: false}"
   >
     <l-image-overlay
-      :url="require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/0STW-3MCB-1PW-1CB-1MC-3TFM-3W.png')"
+      :url="require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ.png')"
       :bounds="bounds4"
     />
     <!-- TFM ----------------------------------------------------------->
     <l-marker
-      v-if="items.c_other === '0' && items.c_other_phase2 === '0' && items.c_other_phase3 === '0'"
-      :lat-lng="[604, 114]"
+      v-if="items.c_other === '0'"
+      :lat-lng="[428, 114]"
       :icon="iconTFMF"
     />
     <l-marker
       v-else
-      :lat-lng="[604, 114]"
+      :lat-lng="[428, 114]"
       :icon="iconTFMN"
     />
     <!-- MCB ----------------------------------------------------------->
     <l-marker
-      v-if="(items.c_main_breaker === '0' && items.c_main_breaker_phase2 === '0' && items.c_main_breaker_phase3 === '0')"
-      :lat-lng="[64, 100]"
+      v-if="(items.c_main_breaker === '0')"
+      :lat-lng="[-72, 116]"
       :icon="iconMCBF"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
@@ -34,8 +34,8 @@
       </l-popup>
     </l-marker>
     <l-marker
-      v-else-if="items.c_main_breaker === '1' || items.c_main_breaker_phase2 === '1' || items.c_main_breaker_phase3 === '1'"
-      :lat-lng="[64, 100]"
+      v-else-if="items.c_main_breaker === '1'"
+      :lat-lng="[-72, 116]"
       :icon="iconMCBN"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
@@ -44,7 +44,7 @@
     </l-marker>
     <l-marker
       v-else
-      :lat-lng="[64, 100]"
+      :lat-lng="[-106, 114]"
       :icon="iconMCBNF"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
@@ -54,7 +54,7 @@
     <!-- photo swicth ----------------------------------------------------------->
     <l-marker
       v-if="items.c_photo_switch === '0'"
-      :lat-lng="[73, -118]"
+      :lat-lng="[-100, -118]"
       :icon="iconPhoto4"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
@@ -63,28 +63,48 @@
     </l-marker>
     <l-marker
       v-else
-      :lat-lng="[73, -118]"
+      :lat-lng="[-100, -118]"
       :icon="iconPhotoMoon"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
         {{ items.value_photo_switch }}
       </l-popup>
     </l-marker>
-    <!-- CB1 ----------------------------------------------------------->
+    <!-- MC1 ----------------------------------------------------------->
     <l-marker
-      v-if="(items.c_main_breaker === '0' && items.c_main_breaker_phase2 === '0' && items.c_main_breaker_phase3 === '0')
-        || (items.c_sub_breaker1 === '0' && items.c_sub_breaker1_phase2 === '0' && items.c_sub_breaker1_phase3 === '0')"
-      :lat-lng="[-266, 44]"
-      :icon="iconCB1F"
+      v-if="(items.c_main_breaker === '0')
+        || (items.c_magnetic_contactor1 === '0')"
+      :lat-lng="[-412, 118]"
+      :icon="iconMC1F"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
-        {{ items.value_sub_breaker1 }}
+        {{ items.value_magnetic_contactor1 }}
       </l-popup>
     </l-marker>
     <l-marker
-      v-else-if="(items.c_main_breaker === '1' || items.c_main_breaker_phase2 === '1'|| items.c_main_breaker_phase3 === '1')
-        && (items.c_sub_breaker1 === '1'|| items.c_sub_breaker1_phase2 === '1' || items.c_sub_breaker1_phase3 === '1')"
-      :lat-lng="[-266, 44]"
+      v-else-if="(items.c_main_breaker === '1')
+        && (items.c_magnetic_contactor1 === '1')"
+      :lat-lng="[-412, 118]"
+      :icon="iconMC1N"
+    >
+      <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
+        {{ items.value_magnetic_contactor1 }}
+      </l-popup>
+    </l-marker>
+    <l-marker
+      v-else
+      :lat-lng="[-412, 118]"
+      :icon="iconMC1NF"
+    >
+      <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
+        {{ items.value_magnetic_contactor1 }}
+      </l-popup>
+    </l-marker>
+
+    <!-- CB1 ----------------------------------------------------------->
+    <l-marker
+      v-if="items.c_sub_breaker1 === '1'"
+      :lat-lng="[-670, 115]"
       :icon="iconCB1N"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
@@ -93,116 +113,106 @@
     </l-marker>
     <l-marker
       v-else
-      :lat-lng="[-266, 44]"
-      :icon="iconCB1NF"
+      :lat-lng="[-670, 115]"
+      :icon="iconCB1F"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
         {{ items.value_sub_breaker1 }}
       </l-popup>
     </l-marker>
-
-    <!-- MC ----------------------------------------------------------->
+    <!-- CB2 ----------------------------------------------------------->
     <l-marker
-      v-if="items.c_magnetic_contactor1 === '1'"
-      :lat-lng="[-510, -50]"
-      :icon="iconMCN"
+      v-if="items.c_sub_breaker2 === '1'"
+      :lat-lng="[-670, 10]"
+      :icon="iconCB2N"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
-        {{ items.value_magnetic_contactor1 }}
+        {{ items.value_sub_breaker2 }}
       </l-popup>
     </l-marker>
     <l-marker
       v-else
-      :lat-lng="[-510, -50]"
-      :icon="iconMCF"
+      :lat-lng="[-670, 10]"
+      :icon="iconCB2F"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
-        {{ items.value_magnetic_contactor1 }}
+        {{ items.value_sub_breaker2 }}
+      </l-popup>
+    </l-marker>
+    <!-- CB3 ----------------------------------------------------------->
+    <l-marker
+      v-if="items.c_sub_breaker3 === '1'"
+      :lat-lng="[-670, 225]"
+      :icon="iconCB3N"
+    >
+      <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
+        {{ items.value_sub_breaker3 }}
+      </l-popup>
+    </l-marker>
+    <l-marker
+      v-else
+      :lat-lng="[-670, 225]"
+      :icon="iconCB3F"
+    >
+      <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
+        {{ items.value_sub_breaker3 }}
       </l-popup>
     </l-marker>
 
     <!-- Line 1,2 ----------------------------------------------------------->
     <l-marker
-      v-if="(items.c_magnetic_contactor1 === '0') && (items.line_detect1 === 1 || items.line_detect2 === 1)"
-      :lat-lng="[-522, -170]"
+      v-if="(items.c_sub_breaker1 === '0') && (items.line_detect1 === 1 || items.line_detect2 === 1)"
+      :lat-lng="[-690, -10]"
       :icon="iconLine1F"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
-        {{ items.value_magnetic_contactor1 }}
+        {{ items.value_sub_breaker1 }}
       </l-popup>
     </l-marker>
     <l-marker
-      v-else-if="(items.c_magnetic_contactor1 === '1') && (items.line_detect1 === 1 || items.line_detect2 === 1)"
-      :lat-lng="[-522, -170]"
+      v-else-if="(items.c_sub_breaker1 === '1') && (items.line_detect1 === 1 || items.line_detect2 === 1)"
+      :lat-lng="[-690, -10]"
       :icon="iconLine1N"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
-        {{ items.value_magnetic_contactor1 }}
+        {{ items.value_sub_breaker1 }}
       </l-popup>
     </l-marker>
     <l-marker
       v-else
-      :lat-lng="[-522, -170]"
+      :lat-lng="[-690, -10]"
       :icon="iconLine1B"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
-        {{ items.value_magnetic_contactor1 }}
+        {{ items.value_sub_breaker1 }}
       </l-popup>
     </l-marker>
     <!-- Line 3,4 ----------------------------------------------------------->
     <l-marker
-      v-if="(items.c_magnetic_contactor1 === '0') && (items.line_detect3 === 1 || items.line_detect4 === 1)"
-      :lat-lng="[-522, 174]"
+      v-if="(items.c_sub_breaker1 === '0') && (items.line_detect3 === 1 || items.line_detect4 === 1)"
+      :lat-lng="[-690, 240]"
       :icon="iconLine2F"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
-        {{ items.value_magnetic_contactor1 }}
+        {{ items.value_sub_breaker1 }}
       </l-popup>
     </l-marker>
     <l-marker
-      v-else-if="(items.c_magnetic_contactor1 === '1') && (items.line_detect3 === 1 || items.line_detect4 === 1)"
-      :lat-lng="[-522, 174]"
+      v-else-if="(items.c_sub_breaker1 === '1') && (items.line_detect3 === 1 || items.line_detect4 === 1)"
+      :lat-lng="[-690, 240]"
       :icon="iconLine2N"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
-        {{ items.value_magnetic_contactor1 }}
+        {{ items.value_sub_breaker1 }}
       </l-popup>
     </l-marker>
     <l-marker
       v-else
-      :lat-lng="[-522, 174]"
+      :lat-lng="[-690, 240]"
       :icon="iconLine2B"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
-        {{ items.value_magnetic_contactor1 }}
-      </l-popup>
-    </l-marker>
-    <!-- Line 5,6 ----------------------------------------------------------->
-    <l-marker
-      v-if="(items.c_magnetic_contactor1 === '0') && (items.line_detect5 === 1 || items.line_detect6 === 1)"
-      :lat-lng="[-522, 520]"
-      :icon="iconLine2F"
-    >
-      <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
-        {{ items.value_magnetic_contactor1 }}
-      </l-popup>
-    </l-marker>
-    <l-marker
-      v-else-if="(items.c_magnetic_contactor1 === '1') && (items.line_detect5 === 1 || items.line_detect6 === 1)"
-      :lat-lng="[-522, 520]"
-      :icon="iconLine2N"
-    >
-      <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
-        {{ items.value_magnetic_contactor1 }}
-      </l-popup>
-    </l-marker>
-    <l-marker
-      v-else
-      :lat-lng="[-522, 520]"
-      :icon="iconLine2B"
-    >
-      <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
-        {{ items.value_magnetic_contactor1 }}
+        {{ items.value_sub_breaker1 }}
       </l-popup>
     </l-marker>
   </l-map>
@@ -242,7 +252,7 @@ export default {
       checkRight1: '',
       checkLeft2: '',
       checkRight2: '',
-      bounds4: [[-930, 1330], [920, -1080]],
+      bounds4: [[-930, 920], [920, -669]],
       iconSize: 64,
       crs: CRS.Simple,
       minZoom4: -1,
@@ -251,96 +261,121 @@ export default {
 
       // TFM
       iconTFMN: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/s1b.gif'),
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/s1b.gif'),
         iconSize: [378, 360],
       }),
       iconTFMF: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/s1r.gif'),
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/s1r.gif'),
         iconSize: [378, 360],
       }),
+
       // main_breaker
       iconMCBF: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/mcb-r1.gif'),
-        iconSize: [290, 260],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/MCB-Off-1.gif'),
+        iconSize: [32, 140],
       }),
       iconMCBN: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/mcb-1.gif'),
-        iconSize: [290, 260],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/MCB-On.gif'),
+        iconSize: [58, 160],
       }),
       iconMCBNF: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/mcb-yn1.gif'),
-        iconSize: [290, 260],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/MCB-y-1.gif'),
+        iconSize: [186, 180],
       }),
+
+      // Photo
       iconPhoto4: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/Photo-DR.gif'),
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/Photo-DR.gif'),
         iconSize: [220, 179],
       }),
       iconPhotoMoon: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/Photo-N.gif'),
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/Photo-N.gif'),
         iconSize: [220, 179],
       }),
-      iconMCN: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/mc-on1.gif'),
-        iconSize: [54, 80],
+
+      // --- MC1 -----------------------------------------------------------
+      iconMC1N: icon({
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/mc-n1.gif'),
+        iconSize: [258, 240],
       }),
-      iconMCF: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/mc-r1.gif'),
-        iconSize: [54, 80],
+      iconMC1F: icon({
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/mc-r1.gif'),
+        iconSize: [258, 240],
+      }),
+      iconMC1NF: icon({
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/mc-y1.gif'),
+        iconSize: [258, 240],
       }),
 
       // --- CB1 -----------------------------------------------------------
       iconCB1N: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/cb9-l-1.gif'),
-        iconSize: [232, 210],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/cb-on1.png'),
+        iconSize: [32, 76],
       }),
       iconCB1F: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/cb9-l-r1.gif'),
-        iconSize: [232, 210],
-      }),
-      iconCB1NF: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/cb9-l-y1.gif'),
-        iconSize: [232, 210],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/cb-r1.png'),
+        iconSize: [32, 76],
       }),
 
       // --- CB2 -----------------------------------------------------------
       iconCB2N: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/cb9-r-1.gif'),
-        iconSize: [232, 202],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/cb-on1.png'),
+        iconSize: [32, 76],
       }),
       iconCB2F: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/cb9-r-r1.gif'),
-        iconSize: [232, 202],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/cb-r1.png'),
+        iconSize: [32, 76],
       }),
-      iconCB2NF: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/cb9-r-y1.gif'),
-        iconSize: [232, 202],
+
+      // --- CB3 -----------------------------------------------------------
+      iconCB3N: icon({
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/cb-on1.png'),
+        iconSize: [32, 76],
       }),
+      iconCB3F: icon({
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/cb-r1.png'),
+        iconSize: [32, 76],
+      }),
+
+      // --- CB2 -----------------------------------------------------------
+      // iconCB2N: icon({
+      //   iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1MC-1CB-3TFM-2W-67/cb9-r-1.gif'),
+      //   iconSize: [232, 202],
+      // }),
+      // iconCB2F: icon({
+      //   iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1MC-1CB-3TFM-2W-67/cb9-r-r1.gif'),
+      //   iconSize: [232, 202],
+      // }),
+      // iconCB2NF: icon({
+      //   iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1MC-1CB-3TFM-2W-67/cb9-r-y1.gif'),
+      //   iconSize: [232, 202],
+      // }),
 
       // --- Line 1 -----------------------------------------------------------
       iconLine1N: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/l-cb6-1.gif'),
-        iconSize: [235, 210],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/l-cb6-1.gif'),
+        iconSize: [235, 206],
       }),
       iconLine1F: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/l-cb6-r1.gif'),
-        iconSize: [235, 210],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/l-cb6-r1.gif'),
+        iconSize: [235, 206],
       }),
       iconLine1B: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/l-cb6-r2-green.gif'),
-        iconSize: [235, 210],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/l-cb6-r2-green.gif'),
+        iconSize: [235, 206],
       }),
       // --- Line 2 -----------------------------------------------------------
       iconLine2N: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/r-cb6-1.gif'),
-        iconSize: [235, 210],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/r-cb6-1.gif'),
+        iconSize: [235, 206],
       }),
       iconLine2F: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/r-cb6-r1.gif'),
-        iconSize: [235, 210],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/r-cb6-r1.gif'),
+        iconSize: [235, 206],
       }),
       iconLine2B: icon({
-        iconUrl: require('@/assets/images/icons/semcontrol/0STW-3MCB-1PW-1CB-1MC-3TFM-3W-67/r-cb6-r2-green.gif'),
-        iconSize: [235, 210],
+        iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/r-cb6-r2-green.gif'),
+        iconSize: [235, 206],
       }),
       sem_type: '',
       diagram_type: '',

@@ -43,8 +43,8 @@
               md="12"
               sm="12"
             >
-              <STW0_3MCB_1PW_1CB_1MC_3TFM_3W_67
-                v-if="diagram_type === '0STW-3MCB-1PW-1CB-1MC-3TFM' && sem_type === 'nbiot_cab_3p_line_check_3w'"
+              <STW0_1MCB_1PW_1MC_3CB_1TFM_ADJ_2W
+                v-if="diagram_type === '0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ' && sem_type === 'nbiot_cab_line_check_2w'"
               />
               <STW0_3MCB_1PW_1CB_1MC_3TFM_2W_67
                 v-else-if="diagram_type === '0STW-3MCB-1PW-1CB-1MC-3TFM' && sem_type === 'nbiot_cab_3p_line_check_2w'"
@@ -64,7 +64,7 @@ import 'leaflet/dist/leaflet.css'
 import axios from '@axios'
 import { ToggleButton } from 'vue-js-toggle-button'
 
-import STW0_3MCB_1PW_1CB_1MC_3TFM_3W_67 from '@/views/detail/diagram/0STW-3MCB-1PW-1CB-1MC-3TFM-3w-67.vue'
+import STW0_1MCB_1PW_1MC_3CB_1TFM_ADJ_2W from '@/views/detail/diagram/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ-2w.vue'
 import STW0_3MCB_1PW_1CB_1MC_3TFM_2W_67 from '@/views/detail/diagram/0STW-3MCB-1PW-1CB-1MC-3TFM-2w-67.vue'
 
 import ColorScale1 from './ColorScale1.vue'
@@ -76,7 +76,7 @@ export default {
     BRow,
     BCard,
     // eslint-disable-next-line vue/no-unused-components
-    STW0_3MCB_1PW_1CB_1MC_3TFM_3W_67,
+    STW0_1MCB_1PW_1MC_3CB_1TFM_ADJ_2W,
     STW0_3MCB_1PW_1CB_1MC_3TFM_2W_67,
     ToggleButton,
 
