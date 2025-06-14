@@ -2,7 +2,9 @@
   <div>
     <b-row>
       <b-col
-        cols="6"
+        lg="6"
+        md="12"
+        sm="12"
         class="mb-1"
       >
         <b-link
@@ -18,7 +20,9 @@
         </b-link>
       </b-col>
       <b-col
-        cols="3"
+        lg="3"
+        md="4"
+        sm="12"
         class="text-sm-right d-flex align-items-center justify-content-end"
       >
         <div class="mr-1">
@@ -69,7 +73,9 @@
         </div>
       </b-col>
       <b-col
-        cols="3"
+        lg="3"
+        md="8"
+        sm="12"
         class="text-sm-right d-flex align-items-center justify-content-end"
       >
         <div class="mr-2">

@@ -20,20 +20,27 @@
         md="12"
         sm="12"
       >
-        <b-row>
+        <b-row
+          v-if="phaseType === 1"
+          style="margin-top: 3.4rem;"
+        >
           <!-- แสดงผลตามค่า phase_type -->
-          <template v-if="phaseType === 1">
+          <template>
             <!-- กรณี 1 phase แสดงคอมโพเนนต์ L1PhaseCard -->
             <b-col
               lg="12"
               md="12"
               sm="12"
-              class="phase-card-wrapper"
             >
               <L1PhaseCard />
             </b-col>
           </template>
-          <template v-else>
+        </b-row>
+        <b-row
+          v-else
+          style="margin-top: 3.2rem;"
+        >
+          <template>
             <!-- กรณี 3 phase แสดงคอมโพเนนต์ L1, L2, L3 -->
             <b-col
               lg="12"
@@ -207,7 +214,7 @@ export default {
 .phase-card-wrapper {
   height: 100%;
   /* ความสูงเท่ากับ 3 คาร์ดรวมกัน */
-  min-height: calc(100vh - 250px);
+  min-height: calc(137vh - 250px);
   /* ไม่ต้องกำหนด margin-top ที่นี่เพราะมีการกำหนดที่ b-col แล้ว */
 }
 </style>

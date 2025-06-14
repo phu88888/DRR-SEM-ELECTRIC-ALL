@@ -72,8 +72,7 @@
     </l-marker>
     <!-- MC1 ----------------------------------------------------------->
     <l-marker
-      v-if="(items.c_main_breaker === '0')
-        || (items.c_magnetic_contactor1 === '0')"
+      v-if="(items.c_main_breaker === '0' && items.c_magnetic_contactor1 === '0')"
       :lat-lng="[-412, 118]"
       :icon="iconMC1F"
     >
@@ -82,8 +81,7 @@
       </l-popup>
     </l-marker>
     <l-marker
-      v-else-if="(items.c_main_breaker === '1')
-        && (items.c_magnetic_contactor1 === '1')"
+      v-else-if="(items.c_main_breaker === '1' && items.c_magnetic_contactor1 === '1')"
       :lat-lng="[-412, 118]"
       :icon="iconMC1N"
     >
@@ -160,8 +158,8 @@
     </l-marker>
 
     <!-- Line 1,2 ----------------------------------------------------------->
-    <l-marker
-      v-if="(items.c_sub_breaker1 === '0') && (items.line_detect1 === 1 || items.line_detect2 === 1)"
+    <!-- <l-marker
+      v-if="(items.c_sub_breaker1 === '0' && items.c_sub_breaker2 === '0' && items.c_sub_breaker3 === '0') && (items.line_detect1 === 1 || items.line_detect2 === 1)"
       :lat-lng="[-690, -10]"
       :icon="iconLine1F"
     >
@@ -170,7 +168,7 @@
       </l-popup>
     </l-marker>
     <l-marker
-      v-else-if="(items.c_sub_breaker1 === '1') && (items.line_detect1 === 1 || items.line_detect2 === 1)"
+      v-else-if="(items.line_detect1 === 1 || items.line_detect2 === 1)"
       :lat-lng="[-690, -10]"
       :icon="iconLine1N"
     >
@@ -179,16 +177,16 @@
       </l-popup>
     </l-marker>
     <l-marker
-      v-else
+      v-else-if="(items.line_detect1 === 0 && items.line_detect2 === 0)"
       :lat-lng="[-690, -10]"
       :icon="iconLine1B"
     >
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
         {{ items.value_sub_breaker1 }}
       </l-popup>
-    </l-marker>
+    </l-marker> -->
     <!-- Line 3,4 ----------------------------------------------------------->
-    <l-marker
+    <!-- <l-marker
       v-if="(items.c_sub_breaker1 === '0') && (items.line_detect3 === 1 || items.line_detect4 === 1)"
       :lat-lng="[-690, 240]"
       :icon="iconLine2F"
@@ -214,7 +212,7 @@
       <l-popup style="color:#ffffff; width: 2000px; font-size: 14px;">
         {{ items.value_sub_breaker1 }}
       </l-popup>
-    </l-marker>
+    </l-marker> -->
   </l-map>
 </template>
 
@@ -279,11 +277,11 @@ export default {
       // main_breaker
       iconMCBF: icon({
         iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/MCB-Off-1.gif'),
-        iconSize: [32, 140],
+        iconSize: [56, 160],
       }),
       iconMCBN: icon({
         iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/MCB-On.gif'),
-        iconSize: [58, 160],
+        iconSize: [56, 160],
       }),
       iconMCBNF: icon({
         iconUrl: require('@/assets/images/icons/semcontrol/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ/MCB-y-1.gif'),

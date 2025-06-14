@@ -247,7 +247,7 @@ export default {
   color: #ffffff;
   border: 1px solid #00B058;
   border-radius: 10px;
-  height: 900px;
+  height: 960px;
 }
 
 .card-header-custom {

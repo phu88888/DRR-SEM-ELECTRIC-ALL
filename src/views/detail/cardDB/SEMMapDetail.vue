@@ -37,7 +37,7 @@
             <l-tile-layer :url="url" />
 
             <!-- ไฟส่องสว่าง itemsSemD-->
-            <l-marker
+            <!-- <l-marker
               v-for="(marker, index) in markersDetail"
               :key="'marker'+index"
               :ref="'marker'+index"
@@ -99,7 +99,7 @@
                   </b-table>
                 </div>
               </l-popup>
-            </l-marker>
+            </l-marker> -->
 
             <!-- ตู้ไฟส่องสว่าง -->
             <l-marker
@@ -297,6 +297,7 @@ import 'leaflet-fullscreen/dist/Leaflet.fullscreen'
 
 import ColorScale1 from '@/views/detail/cardDB/ColorScale1.vue'
 import ColorScale2 from '@/views/detail/cardDB/ColorScale2.vue'
+
 // eslint-disable-next-line no-underscore-dangle
 delete Icon.Default.prototype._getIconUrl
 Icon.Default.mergeOptions({
@@ -320,7 +321,6 @@ export default {
     BCard,
     BToast,
     BCollapse,
-
     ColorScale1,
     ColorScale2,
   },
@@ -340,7 +340,21 @@ export default {
       type_name: '',
       date_time: '',
       itemsSemC: [],
+      // itemsSemD: [],
       markers3P: [],
+      // fieldsSemD: [
+      //   { key: 'pole', label: 'เสา:', class: 'text-center' },
+      //   { key: 'phase1Volt', label: 'V1:', class: 'text-center' },
+      //   { key: 'phase1Amp', label: 'A1:', class: 'text-center' },
+      //   { key: 'devstatus', label: 'สถานะ:', class: 'text-center' },
+      //   { key: 'lastseen', label: 'อัพเดท:', class: 'text-center' },
+      // ],
+      StatusSemD: [{
+        ปกติ: 'ปกติ', ดับ: 'ดับ', ติดต่อไม่ได้: 'ติดต่อไม่ได้',
+      },
+      {
+        ปกติ: 'success', ดับ: 'warning', ติดต่อไม่ได้: 'danger',
+      }],
       fieldsSemC: [
         { key: 'lastseen', label: 'อัพเดท:', class: 'text-center' },
         { key: 'devconnect', label: 'สถานะ:', class: 'text-center' },
@@ -353,47 +367,23 @@ export default {
         ปกติ: 'success', ติดต่อไม่ได้: 'danger',
       }],
       fieldsSemBox: [
-        {
-          key: 'watt', label: 'Watt:', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'kwh', label: 'Kwh:', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'hz', label: 'Hz:', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'pf', label: 'Pf:', tdClass: 'bg-light-warning',
-        },
+        { key: 'watt', label: 'Watt:', tdClass: 'bg-light-warning' },
+        { key: 'kwh', label: 'Kwh:', tdClass: 'bg-light-warning' },
+        { key: 'hz', label: 'Hz:', tdClass: 'bg-light-warning' },
+        { key: 'pf', label: 'Pf:', tdClass: 'bg-light-warning' },
       ],
       itemsSemBox1: [],
       fieldsSemBox2: [
-        {
-          key: 'watt_phase2', label: 'Watt:', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'kwh_phase2', label: 'Kwh:', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'hz_phase2', label: 'Hz:', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'pf_phase2', label: 'Pf:', tdClass: 'bg-light-warning',
-        },
+        { key: 'watt_phase2', label: 'Watt:', tdClass: 'bg-light-warning' },
+        { key: 'kwh_phase2', label: 'Kwh:', tdClass: 'bg-light-warning' },
+        { key: 'hz_phase2', label: 'Hz:', tdClass: 'bg-light-warning' },
+        { key: 'pf_phase2', label: 'Pf:', tdClass: 'bg-light-warning' },
       ],
       fieldsSemBox3: [
-        {
-          key: 'watt_phase3', label: 'Watt:', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'kwh_phase3', label: 'Kwh:', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'hz_phase3', label: 'Hz:', tdClass: 'bg-light-warning',
-        },
-        {
-          key: 'pf_phase3', label: 'Pf:', tdClass: 'bg-light-warning',
-        },
+        { key: 'watt_phase3', label: 'Watt:', tdClass: 'bg-light-warning' },
+        { key: 'kwh_phase3', label: 'Kwh:', tdClass: 'bg-light-warning' },
+        { key: 'hz_phase3', label: 'Hz:', tdClass: 'bg-light-warning' },
+        { key: 'pf_phase3', label: 'Pf:', tdClass: 'bg-light-warning' },
       ],
       StatusSemBox: [{
         ปกติ: 'ปกติ', ติดต่อไม่ได้: 'ติดต่อไม่ได้',
@@ -406,38 +396,321 @@ export default {
       semid: '',
       event: '',
       event_status: '',
+      interval: null,
+      isInitialLoad: true,
     }
   },
+
+  // ===== WATCHERS =====
+  watch: {
+    // ดู route parameter เมื่อมีการเปลี่ยนหน้า
+    '$route.query.wid': {
+      handler(newWid, oldWid) {
+        console.log('Route changed:', { newWid, oldWid })
+        if (newWid && newWid !== oldWid && !this.isInitialLoad) {
+          this.onPageChange()
+        }
+      },
+      immediate: false,
+    },
+    // ดู route ทั้งหมด
+    $route: {
+      handler(newRoute, oldRoute) {
+        if (newRoute.query.wid && oldRoute && newRoute.query.wid !== oldRoute.query.wid && !this.isInitialLoad) {
+          console.log('Full route changed, reloading data...')
+          this.onPageChange()
+        }
+      },
+      immediate: false,
+    },
+  },
+
+  // ===== LIFECYCLE HOOKS =====
   beforeDestroy() {
     clearInterval(this.interval)
+    window.removeEventListener('resize', this.handleResize)
   },
-  created() {
-    this.getMarker3Phase()
-    this.getCenterSem()
-    this.getAlertFireAlarm()
-    this.getMarkerSem()
-  },
-  mounted() {
-    const map = this.$refs.mymap.mapObject
-    map.addControl(new window.L.Control.Fullscreen())
-    this.interval = setInterval(() => {
-      this.getMarker3Phase()
+
+  async created() {
+    console.log('Component created with wid:', this.$route.query.wid)
+    try {
+      // โหลดข้อมูลตามลำดับ
+      await this.loadAllData()
       this.getAlertFireAlarm()
-      this.getMarkerSem()
-      this.getCenterSem()
-      this.getInfoSemDevice()
-    }, 10000)
+      this.isInitialLoad = false
+      console.log('Initial load completed')
+    } catch (error) {
+      console.log('Error loading initial data:', error)
+    }
   },
+
+  mounted() {
+    console.log('Component mounted')
+    this.$nextTick(async () => {
+      if (this.$refs.mymap && this.$refs.mymap.mapObject) {
+        const map = this.$refs.mymap.mapObject
+        map.addControl(new window.L.Control.Fullscreen())
+
+        // รอให้ข้อมูลโหลดเสร็จก่อนตั้งค่าแผนที่
+        await new Promise(resolve => setTimeout(resolve, 1000))
+        this.setupMap()
+
+        // ตั้งค่า interval
+        this.interval = setInterval(() => {
+          this.getMarker3Phase()
+          this.getAlertFireAlarm()
+          this.getMarkerSem()
+          this.getMarkerDetail()
+        }, 10000)
+
+        // จัดการเมื่อหน้าจอเปลี่ยนขนาด
+        window.addEventListener('resize', this.handleResize)
+      }
+    })
+  },
+
   methods: {
+    // ===== MAP CONTROL METHODS =====
+    // เพิ่มฟังก์ชันสำหรับการโฟกัสไปที่ marker เฉพาะ
+    focusOnMarker(latitude, longitude, zoomLevel = 18) {
+      const targetCenter = [latitude, longitude]
+      this.center = targetCenter
+
+      this.$nextTick(() => {
+        if (this.$refs.mymap && this.$refs.mymap.mapObject) {
+          this.$refs.mymap.mapObject.setView(targetCenter, zoomLevel)
+        }
+      })
+    },
+
+    // ฟังก์ชันสำหรับให้แผนที่แสดง markers ทั้งหมด
+    fitAllMarkers() {
+      if (!this.$refs.mymap || !this.$refs.mymap.mapObject) return
+
+      const map = this.$refs.mymap.mapObject
+      const allMarkers = [...this.markers, ...this.markersDetail]
+
+      if (allMarkers.length > 0) {
+        // eslint-disable-next-line new-cap
+        const group = new window.L.featureGroup()
+
+        allMarkers.forEach(marker => {
+          if (marker.latitude && marker.longitude) {
+            const latLng = window.L.latLng(marker.latitude, marker.longitude)
+            group.addLayer(window.L.marker(latLng))
+          }
+        })
+
+        if (group.getLayers().length > 0) {
+          map.fitBounds(group.getBounds(), {
+            padding: [20, 20],
+            maxZoom: 18,
+          })
+        }
+      }
+    },
+
+    // ฟังก์ชันสำหรับการจัดการเมื่อเปลี่ยนหน้าจอ
+    async onPageChange() {
+      console.log('onPageChange called with wid:', this.$route.query.wid)
+
+      try {
+        // รีเซ็ตข้อมูลก่อน
+        this.resetData()
+
+        // โหลดข้อมูลใหม่แบบต่อเนื่อง
+        await this.loadAllData()
+
+        // รอให้ DOM อัพเดท แล้วตั้งค่าแผนที่
+        await this.$nextTick()
+        await new Promise(resolve => setTimeout(resolve, 500)) // รอ 500ms
+
+        this.setupMap()
+      } catch (error) {
+        console.log('Error on page change:', error)
+      }
+    },
+
+    // ฟังก์ชันรีเซ็ตข้อมูล
+    resetData() {
+      this.markers = []
+      this.markersDetail = []
+      this.markers3P = []
+      this.itemsSemC = []
+      // this.itemsSemD = []
+      this.itemsSemBox1 = []
+      this.center = [0, 0]
+      this.zoom = 18
+    },
+
+    // ฟังก์ชันโหลดข้อมูลทั้งหมด
+    async loadAllData() {
+      const promises = [
+        this.getCenterSem(),
+        this.getMarkerSem(),
+        this.getMarkerDetail(),
+        this.getMarker3Phase(),
+      ]
+
+      await Promise.all(promises)
+      console.log('All data loaded:', {
+        markers: this.markers.length,
+        markersDetail: this.markersDetail.length,
+        center: this.center,
+      })
+    },
+
+    // ฟังก์ชันตั้งค่าแผนที่
+    setupMap() {
+      if (this.$refs.mymap && this.$refs.mymap.mapObject) {
+        const map = this.$refs.mymap.mapObject
+        map.invalidateSize()
+
+        // เลือกวิธีการตั้งจุดศูนย์กลาง
+        this.setCenterBasedOnAvailableData()
+
+        console.log('Map setup completed')
+      } else {
+        console.warn('Map object not available')
+        // ลองอีกครั้งหาก map ยังไม่พร้อม
+        setTimeout(() => this.setupMap(), 1000)
+      }
+    },
+
+    // ฟังก์ชันสำหรับตั้งจุดศูนย์กลางตามข้อมูลที่มี
+    setCenterBasedOnAvailableData() {
+      console.log('Setting center based on available data...')
+      console.log('Center:', this.center, 'Markers:', this.markers.length, 'MarkersDetail:', this.markersDetail.length)
+
+      // 1. ลองใช้ข้อมูลจาก getCenterSem ก่อน
+      if (this.center[0] !== 0 && this.center[1] !== 0) {
+        console.log('Using center from API')
+        this.focusOnMarker(this.center[0], this.center[1], this.zoom)
+        return
+      }
+
+      // 2. หากไม่มี ให้ใช้ marker แรกจาก markers
+      if (this.markers.length > 0) {
+        console.log('Using first marker from markers')
+        const firstMarker = this.markers[0]
+        this.focusOnMarker(firstMarker.latitude, firstMarker.longitude)
+        return
+      }
+
+      // 3. หากไม่มี ให้ใช้ markersDetail แรก
+      if (this.markersDetail.length > 0) {
+        console.log('Using first marker from markersDetail')
+        const firstMarker = this.markersDetail[0]
+        this.focusOnMarker(firstMarker.latitude, firstMarker.longitude)
+        return
+      }
+
+      // 4. หากไม่มีเลย ให้แสดง markers ทั้งหมดในมุมมอง
+      console.log('No markers found, trying fitAllMarkers')
+      this.fitAllMarkers()
+    },
+
+    // ฟังก์ชันจัดการการเปลี่ยนขนาดหน้าจอ
+    handleResize() {
+      this.$nextTick(() => {
+        if (this.$refs.mymap && this.$refs.mymap.mapObject) {
+          this.$refs.mymap.mapObject.invalidateSize()
+        }
+      })
+    },
+
+    // ===== API METHODS =====
+    getCenterSem() {
+      return axios
+        .post('/waySEMControlDetail-Electic', { wid: this.$route.query.wid })
+        .then(response => {
+          if (response.data && response.data.length > 0) {
+            this.zoom = response.data[0].mapzoom || 18
+            this.type_name = response.data[0].type_name
+
+            // ตั้งค่าจุดศูนย์กลางใหม่
+            const newCenter = [response.data[0].latitude, response.data[0].longitude]
+            this.center = newCenter
+
+            // บังคับให้แผนที่อัพเดทจุดศูนย์กลาง (เฉพาะเมื่อโหลดครั้งแรกหรือเปลี่ยนหน้า)
+            if (this.isInitialLoad || !this.$refs.mymap) {
+              this.$nextTick(() => {
+                if (this.$refs.mymap && this.$refs.mymap.mapObject) {
+                  this.$refs.mymap.mapObject.setView(newCenter, this.zoom)
+                }
+              })
+            }
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+
+    // ตู้ไฟ
+    getMarkerSem() {
+      return axios
+        .post('/markerSEM1Phase-Electic', { wid: this.$route.query.wid })
+        .then(response => {
+          this.markers = response.data || []
+
+          // ถ้าเป็นการโหลดครั้งแรกและไม่มีข้อมูล center
+          if (this.isInitialLoad && this.markers.length > 0 && (this.center[0] === 0 && this.center[1] === 0)) {
+            const firstMarker = this.markers[0]
+            this.focusOnMarker(firstMarker.latitude, firstMarker.longitude)
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+
+    // เพิ่มฟังก์ชันสำหรับโหลด markersDetail
+    getMarkerDetail() {
+      return axios
+        .post('/markerSEMDetail-Electic', { wid: this.$route.query.wid })
+        .then(response => {
+          this.markersDetail = response.data || []
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+
+    getMarker3Phase() {
+      return axios
+        .post('/getDiagram3P-Electic', { wid: this.$route.query.wid })
+        .then(response => {
+          this.markers3P = response.data || []
+          this.itemsSemBox1.splice(0)
+
+          if (this.markers3P.length > 0) {
+            const processedData = { ...this.markers3P[0] }
+
+            // Validate and generate PF for all phases
+            processedData.pf = this.validateAndGeneratePF(processedData.pf)
+            processedData.pf_phase2 = this.validateAndGeneratePF(processedData.pf_phase2)
+            processedData.pf_phase3 = this.validateAndGeneratePF(processedData.pf_phase3)
+
+            this.itemsSemBox1.push(processedData)
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+
+    // ===== ALERT METHODS =====
     getAlertFireAlarm() {
       axios
         .post('/checkSem1EventLog-Electic', { wid: this.$route.query.wid })
         .then(response => {
-          if (response.data.lenght !== 0) {
+          if (response.data && response.data.length > 0) {
             this.ack = response.data[0].ack
             this.event = response.data[0].problem_cause
             this.date_time = response.data[0].date_time
             this.event_status = response.data[0].event_status
+
             if (this.ack === 1 && this.event_status === 'up') {
               this.$bvToast.show('toast-up')
               this.closeToast()
@@ -450,172 +723,56 @@ export default {
             }
           }
         })
-        // eslint-disable-next-line no-unused-vars
         .catch(error => {
-          // console.log(error)
+          console.log(error)
         })
     },
+
     playSoundUp() {
       // eslint-disable-next-line global-require
       this.audio = new Audio(require('@/assets/media/up.mp3'))
       this.audio.play()
     },
+
     playSoundDown() {
       // eslint-disable-next-line global-require
       this.audio = new Audio(require('@/assets/media/alarm.mp3'))
       this.audio.play()
     },
+
     closeToast() {
       axios
         .post('/closeSem1EventLog-Electic', { wid: this.$route.query.wid, ack: 0, alert: 0 })
-        // eslint-disable-next-line no-unused-vars
         .then(response => {
           this.getMarkerSem()
+          console.log(response)
         })
         .catch(error => {
           console.log(error)
         })
     },
-    // closeAlert() {
-    //   this.$swal({
-    //     position: 'top-start',
-    //     title: `<span style="color:#00B058;"> Warning </span>
-    //     <span style="color:#000000; font-size: 16px; font-weight: normal"> ${this.event}</span>`,
-    //     icon: 'success',
-    //     showCancelButton: true,
-    //     confirmButtonText: 'ตกลง',
-    //     cancelButtonText: 'ยกเลิก',
-    //     customClass: {
-    //       confirmButton: 'btn btn-primary',
-    //       cancelButton: 'btn btn-outline-danger ml-1',
-    //     },
-    //     buttonsStyling: false,
-    //   }).then(async result => {
-    //     if (result.value) {
-    //       try {
-    //         await axios.post('/closeSem1EventLog', { wid: this.$route.query.wid, ack: 0, alert: 0 })
-    //         this.$swal({
-    //           icon: 'success',
-    //           title: '<span style="color:#000000">ปิดแจ้งเตือนเรียบร้อยแล้ว</span>',
-    //           showConfirmButton: false,
-    //           timer: 1000,
-    //         })
-    //         this.getMarkerSem()
-    //       } catch (error) {
-    //         this.$swal({
-    //           title: 'Error!',
-    //           text: ' Click to continue!',
-    //           icon: 'error',
-    //           customClass: {
-    //             confirmButton: 'btn btn-primary',
-    //           },
-    //           buttonsStyling: false,
-    //         })
-    //       }
-    //     }
-    //   })
-    // },
-    // closeAlert1() {
-    //   this.$swal({
-    //     position: 'top-start',
-    //     title: `<span style="color:#FB0000;"> Warning </span>
-    //     <span style="color:#000000; font-size: 16px; font-weight: normal"> ${this.event}</span>`,
-    //     icon: 'error',
-    //     showCancelButton: true,
-    //     confirmButtonText: 'ตกลง',
-    //     cancelButtonText: 'ยกเลิก',
-    //     customClass: {
-    //       confirmButton: 'btn btn-primary',
-    //       cancelButton: 'btn btn-outline-danger ml-1',
-    //     },
-    //     buttonsStyling: false,
-    //   }).then(async result => {
-    //     if (result.value) {
-    //       try {
-    //         await axios.post('/closeSem1EventLog', { wid: this.$route.query.wid, ack: 0, alert: 0 })
-    //         this.$swal({
-    //           icon: 'success',
-    //           title: '<span style="color:#000000">ปิดแจ้งเตือนเรียบร้อยแล้ว</span>',
-    //           showConfirmButton: false,
-    //           timer: 1000,
-    //         })
-    //         this.getMarkerSem()
-    //       } catch (error) {
-    //         this.$swal({
-    //           title: 'Error!',
-    //           text: ' Click to continue!',
-    //           icon: 'error',
-    //           customClass: {
-    //             confirmButton: 'btn btn-primary',
-    //           },
-    //           buttonsStyling: false,
-    //         })
-    //       }
-    //     }
-    //   })
-    // },
-    getCenterSem() {
-      axios
-        .post('/waySEMControlDetail-Electic', { wid: this.$route.query.wid })
-        .then(response => {
-          this.center = []
-          this.zoom = response.data[0].mapzoom
-          this.type_name = response.data[0].type_name
-          this.center.push(response.data[0].latitude)
-          this.center.push(response.data[0].longitude)
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
-    // ตู้ไฟ
-    getMarkerSem() {
-      axios
-        .post('/markerSEM1Phase-Electic', { wid: this.$route.query.wid })
-        .then(response => {
-          this.markers = response.data
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
-    getMarker3Phase() {
-      axios
-        .post('/getDiagram3P-Electic', { wid: this.$route.query.wid })
-        .then(response => {
-          this.markers3P = response.data
-          this.itemsSemBox1.splice(0)
-          // this.itemsSemBox1.push(this.markers3P[0])
-          // Process the data and validate/generate PF values for all phases
-          const processedData = { ...this.markers3P[0] }
 
-          // Validate and generate PF for Phase 1
-          processedData.pf = this.validateAndGeneratePF(processedData.pf)
-
-          // Validate and generate PF for Phase 2
-          processedData.pf_phase2 = this.validateAndGeneratePF(processedData.pf_phase2)
-
-          // Validate and generate PF for Phase 3
-          processedData.pf_phase3 = this.validateAndGeneratePF(processedData.pf_phase3)
-
-          this.itemsSemBox1.push(processedData)
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
+    // ===== UTILITY METHODS =====
     zoomUpdated(value) {
-      setTimeout(() => axios
-        .post('/updateMapZoom-Electic', {
-          mapzoom: value, wid: this.$route.query.wid, type_name: this.type_name,
-        })
-        // eslint-disable-next-line no-unused-vars
-        .then(response => {
-        })
-        .catch(error => {
-          console.log(error)
-        }), 1000)
+      setTimeout(() => {
+        if (this.type_name) {
+          axios
+            .post('/updateMapZoom-Electic', {
+              mapzoom: value,
+              wid: this.$route.query.wid,
+              type_name: this.type_name,
+            })
+            .then(response => {
+              // Success
+              console.log(response)
+            })
+            .catch(error => {
+              console.log(error)
+            })
+        }
+      }, 1000)
     },
+
     // Helper method to validate and generate PF value
     validateAndGeneratePF(pfValue) {
       if (pfValue === null || pfValue === '' || pfValue === undefined || Number.isNaN(parseFloat(pfValue))) {
@@ -624,23 +781,24 @@ export default {
       }
       return pfValue
     },
-    getInfoSemDevice(pole, phase1Volt, phase2Volt, phase3Volt, phase1Amp, phase2Amp, phase3Amp, devstatus, lastseen, id, devconnect, alert) {
-      this.itemsSemD = []
-      this.itemsSemD.push({
-        pole,
-        phase1Volt,
-        phase2Volt,
-        phase3Volt,
-        phase1Amp,
-        phase2Amp,
-        phase3Amp,
-        devstatus,
-        lastseen,
-        id,
-        devconnect,
-        alert,
-      })
-    },
+
+    // getInfoSemDevice(pole, phase1Volt, phase2Volt, phase3Volt, phase1Amp, phase2Amp, phase3Amp, devstatus, lastseen, id, devconnect, alert) {
+    //   this.itemsSemD = []
+    //   this.itemsSemD.push({
+    //     pole,
+    //     phase1Volt,
+    //     phase2Volt,
+    //     phase3Volt,
+    //     phase1Amp,
+    //     phase2Amp,
+    //     phase3Amp,
+    //     devstatus,
+    //     lastseen,
+    //     id,
+    //     devconnect,
+    //     alert,
+    //   })
+    // },
 
     getInfoSemC(lastseen, devconnect, id, watt, hz, kwh, pf) {
       this.itemsSemC = []
