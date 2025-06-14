@@ -415,6 +415,7 @@ export default {
         }
       }
 
+      // console.log('getCenterSem - wid ที่ส่งไปยัง API:', this.$route.query.wid)
       axios
         .post('/waySEMControlDetail-Electic', { wid: this.$route.query.wid })
         .then(response => {
@@ -441,6 +442,7 @@ export default {
         })
     },
     getValueDiagram() {
+      // console.log('getValueDiagram - wid ที่ส่งไปยัง API:', this.$route.query.wid)
       axios
         .post('/getDiagram3P-Electic', { wid: this.$route.query.wid })
         .then(response => {

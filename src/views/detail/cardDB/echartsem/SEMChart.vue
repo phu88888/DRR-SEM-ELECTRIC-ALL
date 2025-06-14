@@ -94,8 +94,8 @@ export default {
   },
   data() {
     return {
-      volt3Phase: [],
-      amp3Phase: [],
+      voltPhase1: [],
+      ampPhase1: [],
       optionVolt: {
         xAxis: [
           {
@@ -126,37 +126,12 @@ export default {
         },
         series: [
           {
-            name: 'Phase 1',
+            name: 'Volt',
             type: 'line',
             showSymbol: false,
             smooth: true,
-            // lineStyle: {
-            //   width: 0,
-            // },
             data: [],
-            color: '#FF6100',
-          },
-          {
-            name: 'Phase 2',
-            type: 'line',
-            showSymbol: false,
-            smooth: true,
-            // lineStyle: {
-            //   width: 0,
-            // },
-            data: [],
-            color: '#00FF27',
-          },
-          {
-            name: 'Phase 3',
-            type: 'line',
-            showSymbol: false,
-            smooth: true,
-            // lineStyle: {
-            //   width: 0,
-            // },
-            data: [],
-            color: '#FFFF00',
+            color: '#00D8FF',
           },
         ],
       },
@@ -218,6 +193,21 @@ export default {
       userData: JSON.parse(localStorage.getItem('userData')),
     }
   },
+  watch: {
+    // เพิ่ม watcher สำหรับ $route.query.wid
+    '$route.query.wid': {
+      handler(newWid, oldWid) {
+        if (newWid !== oldWid) {
+          console.log(`wid เปลี่ยนจาก ${oldWid} เป็น ${newWid} - กำลังอัพเดทกราฟ...`)
+          this.resetVolt()
+          this.resetAmp()
+          this.graphVolt()
+          this.graphAmp()
+        }
+      },
+      immediate: false,
+    },
+  },
   beforeDestroy() {
     clearInterval(this.interval)
   },
@@ -233,53 +223,102 @@ export default {
     // this.getbarChartCounting()
   },
   methods: {
+    // ฟังก์ชันสำหรับดึงค่า imei จาก wayData ใน localStorage ตามค่า wid ปัจจุบัน
+    getWayData(wid) {
+      try {
+        // ดึงข้อมูลจาก localStorage
+        const wayData = JSON.parse(localStorage.getItem('wayData'))
+
+        // ถ้าไม่มีข้อมูลใน localStorage ให้ return ค่าว่าง
+        if (!wayData) {
+          console.warn('ไม่พบข้อมูล wayData ใน localStorage')
+          return { imei: null }
+        }
+
+        // แปลง wid เป็น string เพื่อให้แน่ใจว่าเปรียบเทียบประเภทข้อมูลเดียวกัน
+        const widStr = String(wid)
+
+        // หา way ที่มี wid ตรงกับที่ต้องการ (เปรียบเทียบแบบไม่เข้มงวด)
+        const way = wayData.find(item => String(item.wid) === widStr)
+
+        // ถ้าไม่พบ way ที่ตรงกับ wid ให้ return ค่าว่าง
+        if (!way) {
+          console.warn(`ไม่พบ way ที่มี wid=${wid} ใน wayData`)
+          return { imei: null }
+        }
+
+        // ดึงค่า imei จาก way ที่พบ
+        const { imei } = way
+
+        console.log(`พบ way สำหรับ wid=${wid}: imei=${imei}`)
+        return { imei }
+      } catch (error) {
+        console.error('เกิดข้อผิดพลาดในการดึงข้อมูล way:', error)
+        return { imei: null }
+      }
+    },
+
+    // เก็บไว้สำหรับความเข้ากันได้กับโค้ดเดิม
+    getImeiFromWid(wid) {
+      const { imei } = this.getWayData(wid)
+      return imei
+    },
+
     graphVolt() {
-      axios.post('/graphVolt3P-Electic', { wid: this.$route.query.wid })
+      // ดึงค่า wid จาก URL query
+      const { wid } = this.$route.query
+
+      // ดึงค่า imei จาก wayData ใน localStorage
+      const { imei } = this.getWayData(wid)
+
+      // ใช้เฉพาะ API path /api-go/logs4g/graph/volt
+      axios
+        .get(`/api-go/logs4g/graph/volt?imei=${imei}`)
         .then(response => {
           this.resetVolt()
           // eslint-disable-next-line prefer-destructuring
-          this.volt3Phase = response.data
-          this.volt3Phase.forEach(value => {
+          this.voltPhase1 = response.data
+          this.voltPhase1.forEach(value => {
             this.optionVolt.xAxis[0].data.push(value.Period_Name)
             this.optionVolt.series[0].data.push(value.volt)
-            this.optionVolt.series[1].data.push(value.volt2)
-            this.optionVolt.series[2].data.push(value.volt3)
           })
         })
         .catch(error => {
-          console.log(error)
+          console.error('เกิดข้อผิดพลาดในการดึงข้อมูลกราฟแรงดันไฟฟ้า:', error)
         })
     },
     graphAmp() {
-      axios.post('/graphAmp3P-Electic', { wid: this.$route.query.wid })
+      // ดึงค่า wid จาก URL query
+      const { wid } = this.$route.query
+
+      // ดึงค่า imei จาก wayData ใน localStorage
+      const { imei } = this.getWayData(wid)
+
+      // ใช้เฉพาะ API path /api-go/logs4g/graph/amp
+      axios
+        .get(`/api-go/logs4g/graph/amp?imei=${imei}`)
         .then(response => {
           this.resetAmp()
           // eslint-disable-next-line prefer-destructuring
-          this.amp3Phase = response.data
-          this.amp3Phase.forEach(value => {
+          this.ampPhase1 = response.data
+          this.ampPhase1.forEach(value => {
             this.optionAmp.xAxis[0].data.push(value.Period_Name)
             this.optionAmp.series[0].data.push(value.amp)
-            this.optionAmp.series[1].data.push(value.amp2)
-            this.optionAmp.series[2].data.push(value.amp3)
           })
         })
         .catch(error => {
-          console.log(error)
+          console.error('เกิดข้อผิดพลาดในการดึงข้อมูลกราฟกระแสไฟฟ้า:', error)
         })
     },
     resetVolt() {
-      this.volt3Phase.splice(0)
+      this.voltPhase1.splice(0)
       this.optionVolt.xAxis[0].data.splice(0)
       this.optionVolt.series[0].data.splice(0)
-      this.optionVolt.series[1].data.splice(0)
-      this.optionVolt.series[2].data.splice(0)
     },
     resetAmp() {
-      this.amp3Phase.splice(0)
+      this.ampPhase1.splice(0)
       this.optionAmp.xAxis[0].data.splice(0)
       this.optionAmp.series[0].data.splice(0)
-      this.optionAmp.series[1].data.splice(0)
-      this.optionAmp.series[2].data.splice(0)
     },
   },
 }
