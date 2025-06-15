@@ -35,6 +35,21 @@ const router = new VueRouter({
       },
     },
     {
+      path: '/lighting-sub',
+      name: 'lighting-sub',
+      component: () => import('@/views/sublighting/SEMControlSub.vue'),
+      meta: {
+        // pageTitle: 'LightingSub',
+        // requiresAuth: true,
+        // breadcrumb: [
+        //   {
+        //     text: 'Lighting Sub',
+        //     active: true,
+        //   },
+        // ],
+      },
+    },
+    {
       path: '/cctv',
       name: 'cctv',
       component: () => import('@/views/cctv/CCTV.vue'),
