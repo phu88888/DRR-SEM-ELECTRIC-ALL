@@ -82,96 +82,47 @@ const router = new VueRouter({
         requiresAuth: true,
       },
     },
-
+    // {
+    //   path: '/lighting-sub',
+    //   name: 'lighting-sub',
+    //   component: () => import('@/views/sublighting/SEMControlSub.vue'),
+    //   meta: {},
+    // },
     {
-      path: '/reportsemcontrol3day',
-      name: 'reportsemcontrol3day',
-      component: () => import('@/views/detail/ReportSem/ReportSemControlDay.vue'),
-      meta: {
-        // pageTitle: 'ReportSemControlDay',
-        // requiresAuth: true,
-        // breadcrumb: [
-        //   {
-        //     text: 'ReportSemControlDay',
-        //     active: true,
-        //   },
-        // ],
-      },
+      path: '/reportsemcontroldaily1p',
+      name: 'reportsemcontroldaily1p',
+      component: () => import('@/views/detail/ReportSem/ReportSemControlDay1P.vue'),
+      meta: {},
     },
     {
       path: '/reportsemcontrol3month',
       name: 'reportsemcontrol3month',
       component: () => import('@/views/detail/ReportSem/ReportSemControlMonth.vue'),
-      meta: {
-        // pageTitle: 'ReportSemControlMonth',
-        // requiresAuth: true,
-        // breadcrumb: [
-        //   {
-        //     text: 'ReportSemControlMonth',
-        //     active: true,
-        //   },
-        // ],
-      },
+      meta: {},
     },
     {
       path: '/reportsemcontrol3year',
       name: 'reportsemcontrol3year',
       component: () => import('@/views/detail/ReportSem/ReportSemControlYear.vue'),
-      meta: {
-        // pageTitle: 'ReportSemControlYear',
-        // requiresAuth: true,
-        // breadcrumb: [
-        //   {
-        //     text: 'ReportSemControlYear',
-        //     active: true,
-        //   },
-        // ],
-      },
+      meta: {},
     },
     {
       path: '/reportrepair3day',
       name: 'reportrepair3day',
       component: () => import('@/views/detail/ReportSem/ReportRepairDay.vue'),
-      meta: {
-        // pageTitle: 'ReportRepairDay',
-        // requiresAuth: true,
-        // breadcrumb: [
-        //   {
-        //     text: 'ReportRepairDay',
-        //     active: true,
-        //   },
-        // ],
-      },
+      meta: {},
     },
     {
       path: '/reportrepair3month',
       name: 'reportrepair3month',
       component: () => import('@/views/detail/ReportSem/ReportRepairMonth.vue'),
-      meta: {
-        // pageTitle: 'ReportRepairMonth',
-        // requiresAuth: true,
-        // breadcrumb: [
-        //   {
-        //     text: 'ReportRepairMonth',
-        //     active: true,
-        //   },
-        // ],
-      },
+      meta: {},
     },
     {
       path: '/reportrepair3year',
       name: 'reportrepair3year',
       component: () => import('@/views/detail/ReportSem/ReportRepairYear.vue'),
-      meta: {
-        // pageTitle: 'ReportRepairYear',
-        // requiresAuth: true,
-        // breadcrumb: [
-        //   {
-        //     text: 'ReportRepairYear',
-        //     active: true,
-        //   },
-        // ],
-      },
+      meta: {},
     },
 
     {
@@ -187,13 +138,6 @@ const router = new VueRouter({
       name: 'semcontrol3p-problem',
       component: () => import('@/views/detail/cardDB/SEMControl3Problem.vue'),
       meta: {
-        // pageTitle: 'semcontrol-problem',
-        // breadcrumb: [
-        //   {
-        //     text: 'semcontrol-problem',
-        //     active: true,
-        //   },
-        // ],
       },
     },
     {

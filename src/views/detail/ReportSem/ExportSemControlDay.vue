@@ -105,15 +105,27 @@ export default {
     AppEchartLine,
     BCardCode,
   },
+  props: {
+    date: {
+      type: Object,
+      default: () => ({
+        wid: '',
+        selectedDate: '',
+      }),
+    },
+    fixed: {
+      type: Boolean,
+      default: false,
+    },
+    bordered: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       tableVariant: 'light',
       items: [],
-      date: {
-        wid: '',
-        dateFrom: '',
-        dateTo: '',
-      },
       option: {
         xAxisData: [],
         series: [

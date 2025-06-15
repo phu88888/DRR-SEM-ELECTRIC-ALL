@@ -222,7 +222,7 @@ export default {
     this.interval = setInterval(() => {
       this.graphVolt()
       this.graphAmp()
-    }, 100000)
+    }, 600000)
   },
   mounted() {
     // ไม่จำเป็นต้องเรียกที่นี่แล้ว เพราะ watcher จะทำงานทันทีด้วย immediate: true

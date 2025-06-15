@@ -27,10 +27,9 @@
       >
         <div class="mr-1">
           <b-link
-            v-b-modal="'Log'"
             class="nav-link"
             variant="outline-primary"
-            @click="$refs.Log.getTableNBIoTLog(items.imei)"
+            @click="showLogModal = true"
           >
             <feather-icon
               icon="FileTextIcon"
@@ -49,25 +48,13 @@
             class="btn-icon"
           >
             <!-- รายงานการทำงานตู้ควบคุม -->
-            <b-dropdown-item :href="`/reportsemcontrol3day?wid=${this.$route.query.wid}&type=${this.$route.query.type}`">
-              สรุปการทำงานตู้ควบคุมรายวัน
-            </b-dropdown-item>
-            <b-dropdown-item :href="`/reportsemcontrol3month?wid=${this.$route.query.wid}&type=${this.$route.query.type}`">
-              สรุปการทำงานตู้ควบคุมรายเดือน
-            </b-dropdown-item>
-            <b-dropdown-item :href="`/reportsemcontrol3year?wid=${this.$route.query.wid}&type=${this.$route.query.type}`">
-              สรุปการทำงานตู้ควบคุมรายปี
+            <b-dropdown-item :href="`/reportsemcontroldaily1p?wid=${$route.query.wid}&imei=${items.imei}`">
+              สรุปการทำงานตู้ควบคุม
             </b-dropdown-item>
             <b-dropdown-divider />
             <!-- รายงานการซ่อมปุกรณ์ -->
-            <b-dropdown-item :href="`/reportrepair3day?wid=${this.$route.query.wid}&type=${this.$route.query.type}`">
-              สรุปการซ่อมอุปกรณ์รายวัน
-            </b-dropdown-item>
-            <b-dropdown-item :href="`/reportrepair3month?wid=${this.$route.query.wid}&type=${this.$route.query.type}`">
-              สรุปการซ่อมอุปกรณ์รายเดือน
-            </b-dropdown-item>
-            <b-dropdown-item :href="`/reportrepair3year?wid=${this.$route.query.wid}&type=${this.$route.query.type}`">
-              สรุปการซ่อมอุปกรณ์รายปี
+            <b-dropdown-item :href="`/reportrepair3year?wid=${$route.query.wid}&imei=${items.imei}`">
+              สรุปการซ่อมอุปกรณ์
             </b-dropdown-item>
           </b-dropdown>
         </div>
@@ -92,8 +79,13 @@
         </div>
       </b-col>
     </b-row>
-    <modalLog
-      ref="Log"
+    <ModalLog4G
+      v-if="showLogModal"
+      :imei="String(items.imei)"
+      :wid="$route.query.wid"
+      :phase-type="items.phase_type || 'single'"
+      @hidden="showLogModal = false"
+      @diagram-opened="handleDiagramOpened"
     />
   </div>
 </template>
@@ -107,7 +99,7 @@ import {
 } from 'bootstrap-vue'
 import axios from '@axios'
 import Ripple from 'vue-ripple-directive'
-import modalLog from './modalLog.vue'
+import ModalLog4G from '@/views/detail/cardDB/ModalLog4G.vue'
 /* eslint-disable global-require */
 // import ModalStatusLighting from './ModalStatusLighting.vue'
 // eslint-disable-next-line no-underscore-dangle
@@ -121,7 +113,7 @@ export default {
     BDropdownItem,
     BDropdownDivider,
     BFormSelect,
-    modalLog,
+    ModalLog4G,
     // BButton,
     // ModalStatusLighting,
   },
@@ -130,6 +122,7 @@ export default {
   },
   data() {
     return {
+      showLogModal: false,
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       waydetail: '',
       deptid: '',
@@ -312,6 +305,11 @@ export default {
         .catch(error => {
           console.log(error)
         })
+    },
+
+    handleDiagramOpened(data) {
+      console.log('Diagram opened:', data.url, 'with title:', data.title)
+      // Additional handling if needed
     },
 
   },
