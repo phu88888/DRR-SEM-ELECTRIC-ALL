@@ -97,12 +97,12 @@ const router = new VueRouter({
         requiresAuth: true,
       },
     },
-    // {
-    //   path: '/lighting-sub',
-    //   name: 'lighting-sub',
-    //   component: () => import('@/views/sublighting/SEMControlSub.vue'),
-    //   meta: {},
-    // },
+    {
+      path: '/lighting-sub',
+      name: 'lighting-sub',
+      component: () => import('@/views/sublighting/SEMControlSub.vue'),
+      meta: {},
+    },
     {
       path: '/reportsemcontroldaily1p',
       name: 'reportsemcontroldaily1p',
