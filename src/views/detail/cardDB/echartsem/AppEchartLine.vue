@@ -40,18 +40,35 @@ export default {
             },
           },
         },
-        grid: this.optionData.grid,
+        grid: this.optionData ? this.optionData.grid : {},
         legend: {
           left: 0,
           textStyle: {
             color: '#fff',
           },
         },
-        xAxis: this.optionData.xAxis,
-        yAxis: this.optionData.yAxis,
-        series: this.optionData.series,
+        xAxis: this.optionData ? this.optionData.xAxis : [],
+        yAxis: this.optionData ? this.optionData.yAxis : {},
+        series: this.optionData ? this.optionData.series : [],
       },
     }
+  },
+  watch: {
+    // เพิ่ม watcher สำหรับ optionData เพื่ออัพเดทกราฟเมื่อข้อมูลเปลี่ยนแปลง
+    optionData: {
+      handler(newVal) {
+        if (newVal) {
+          console.log('optionData เปลี่ยนแปลง - อัพเดทกราฟ')
+          // อัพเดทค่าใน line object
+          this.line.grid = newVal.grid || {}
+          this.line.xAxis = newVal.xAxis || []
+          this.line.yAxis = newVal.yAxis || {}
+          this.line.series = newVal.series || []
+        }
+      },
+      deep: true, // ตรวจจับการเปลี่ยนแปลงแบบลึก (nested properties)
+      immediate: true, // ทำงานทันทีเมื่อคอมโพเนนต์ถูกสร้าง
+    },
   },
 }
 </script>

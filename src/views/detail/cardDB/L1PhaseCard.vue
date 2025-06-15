@@ -24,15 +24,17 @@
                 icon="ZapIcon"
                 class="energy-icon"
               />
+            </div>
+            <div class="energy-value">
+              {{ volt }}
+            </div>
+            <div class="badge-container">
               <b-badge
                 variant="success"
                 class="energy-badge-label"
               >
                 Volt
               </b-badge>
-            </div>
-            <div class="energy-value">
-              {{ volt }}
             </div>
           </div>
         </div>
@@ -44,15 +46,17 @@
                 icon="ActivityIcon"
                 class="energy-icon"
               />
+            </div>
+            <div class="energy-value">
+              {{ amp }}
+            </div>
+            <div class="badge-container">
               <b-badge
                 variant="primary"
                 class="energy-badge-label"
               >
                 Amp
               </b-badge>
-            </div>
-            <div class="energy-value">
-              {{ amp }}
             </div>
           </div>
         </div>
@@ -64,15 +68,17 @@
                 icon="BatteryChargingIcon"
                 class="energy-icon"
               />
+            </div>
+            <div class="energy-value">
+              {{ watt }}
+            </div>
+            <div class="badge-container">
               <b-badge
                 variant="warning"
                 class="energy-badge-label"
               >
                 Watt
               </b-badge>
-            </div>
-            <div class="energy-value">
-              {{ watt }}
             </div>
           </div>
         </div>
@@ -84,15 +90,17 @@
                 icon="RefreshCwIcon"
                 class="energy-icon"
               />
+            </div>
+            <div class="energy-value">
+              {{ hz }}
+            </div>
+            <div class="badge-container">
               <b-badge
                 variant="info"
                 class="energy-badge-label"
               >
                 Hz
               </b-badge>
-            </div>
-            <div class="energy-value">
-              {{ hz }}
             </div>
           </div>
         </div>
@@ -104,15 +112,17 @@
                 icon="BarChartIcon"
                 class="energy-icon"
               />
+            </div>
+            <div class="energy-value">
+              {{ kwh }}
+            </div>
+            <div class="badge-container">
               <b-badge
                 variant="danger"
                 class="energy-badge-label"
               >
                 kWh
               </b-badge>
-            </div>
-            <div class="energy-value">
-              {{ kwh }}
             </div>
           </div>
         </div>
@@ -124,15 +134,17 @@
                 icon="PieChartIcon"
                 class="energy-icon"
               />
+            </div>
+            <div class="energy-value">
+              {{ pf }}
+            </div>
+            <div class="badge-container">
               <b-badge
                 variant="secondary"
                 class="energy-badge-label"
               >
                 Pf
               </b-badge>
-            </div>
-            <div class="energy-value">
-              {{ pf }}
             </div>
           </div>
         </div>
@@ -222,6 +234,10 @@ export default {
             this.hz = data.hz || '0'
             this.kwh = data.kwh || '0'
             this.pf = data.pf || '0'
+
+            // อัพเดทเวลาล่าสุดที่ดึงข้อมูล
+            this.lastUpdated = new Date()
+            console.log('อัพเดทข้อมูล L1PhaseCard เวลา:', this.formattedDate)
           }
         })
         .catch(error => {
