@@ -49,6 +49,12 @@
               <STW0_3MCB_1PW_1CB_1MC_3TFM_2W_67
                 v-else-if="diagram_type === '0STW-3MCB-1PW-1CB-1MC-3TFM' && sem_type === 'nbiot_cab_3p_line_check_2w'"
               />
+              <STW0_1MCB_1PW_1MC_3CB_1TFM_ADJ_2_2W
+                v-else-if="diagram_type === '0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ-2' && sem_type === 'nbiot_cab_line_check_2w' && $route.query.type === 'iot4g-67'"
+              />
+              <STW0_1MCB_1PW_2MC_4CB_1TFM_C_2W
+                v-else-if="diagram_type === '0STW-1MCB-1PW-2MC-4CB-1TFM-C' && sem_type === 'nbiot_cab_line_check_2w' && $route.query.type === 'iot4g-67'"
+              />
             </b-col>
           </b-row>
         </b-card>
@@ -66,6 +72,8 @@ import { ToggleButton } from 'vue-js-toggle-button'
 
 import STW0_1MCB_1PW_1MC_3CB_1TFM_ADJ_2W from '@/views/detail/diagram/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ-2w.vue'
 import STW0_3MCB_1PW_1CB_1MC_3TFM_2W_67 from '@/views/detail/diagram/0STW-3MCB-1PW-1CB-1MC-3TFM-2w-67.vue'
+import STW0_1MCB_1PW_1MC_3CB_1TFM_ADJ_2_2W from '@/views/detail/diagram/0STW-1MCB-1PW-1MC-3CB-1TFM-ADJ-2-2w.vue'
+import STW0_1MCB_1PW_2MC_4CB_1TFM_C_2W from '@/views/detail/diagram/0STW-1MCB-1PW-1MC-3CB-1TFM-C-2w.vue'
 
 import ColorScale1 from './ColorScale1.vue'
 import ColorScale2 from './ColorScale2.vue'
@@ -78,6 +86,8 @@ export default {
     // eslint-disable-next-line vue/no-unused-components
     STW0_1MCB_1PW_1MC_3CB_1TFM_ADJ_2W,
     STW0_3MCB_1PW_1CB_1MC_3TFM_2W_67,
+    STW0_1MCB_1PW_1MC_3CB_1TFM_ADJ_2_2W,
+    STW0_1MCB_1PW_2MC_4CB_1TFM_C_2W,
     ToggleButton,
 
     ColorScale1,

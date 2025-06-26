@@ -581,7 +581,7 @@ export default {
 
 .chart-container {
   padding: 1rem;
-  background-color: #283046;
+  // background-color: #283046;
   border-radius: 0 0 0.428rem 0.428rem;
 }
 

@@ -53,16 +53,16 @@ export default {
           },
           data: this.optionData.xAxisData,
           axisLabel: {
-            color: '#fff',
+            color: '#000',
           },
           axisLine: {
             lineStyle: {
-              color: '#fff',
+              color: '#000',
             },
           },
           axisTick: {
             lineStyle: {
-              color: '#fff',
+              color: '#000',
             },
           },
         }],
@@ -70,16 +70,16 @@ export default {
           type: 'value',
           splitLine: { show: false },
           axisLabel: {
-            color: '#fff',
+            color: '#000',
           },
           axisLine: {
             lineStyle: {
-              color: '#fff',
+              color: '#000',
             },
           },
           axisTick: {
             lineStyle: {
-              color: '#fff',
+              color: '#000',
             },
           },
         },
