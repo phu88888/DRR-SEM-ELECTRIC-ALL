@@ -7,7 +7,7 @@ const axiosIns = axios.create({
   // You can add your headers here
   // ================================
   // baseURL: process.env.VUE_APP_BASE_API,
-  baseURL: 'https://mobile-api.firsttech.co.th/',
+  baseURL: 'https://its.drr.go.th/node/mb-api/',
   // timeout: 1000,
   // headers: {'X-Custom-Header': 'foobar'}
 })
@@ -18,13 +18,13 @@ axiosIns.interceptors.request.use(config => {
   let url
   let headers = {}
   if (originalUrl.startsWith('/api-go/')) {
-    baseURL = 'https://api-go.enixma.net/api/v1'
+    baseURL = 'https://its.drr.go.th/goapi/v1'
     headers = {
       'x-api-key': 'TlDUgcAzXWdy1kyB40IHVpgL9g4ELXdPxx4GKpxF',
     }
     url = originalUrl.replace('/api-go/', '/')
   } else {
-    baseURL = 'https://mobile-api.firsttech.co.th/'
+    baseURL = 'https://its.drr.go.th/node/mb-api/'
     url = originalUrl
   }
   return {
