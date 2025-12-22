@@ -253,7 +253,7 @@ export default {
               const { wid } = firstItem
               const equipment = firstItem.equipment || 'iot4g-67'
 
-              this.$router.push(`/diagram?wid=${wid}&type=${equipment}`)
+              this.$router.push(`/?wid=${wid}&type=${equipment}`)
             } else {
               // กรณีไม่มีข้อมูล ให้แสดงข้อความแจ้งเตือน
               this.$swal.fire({
